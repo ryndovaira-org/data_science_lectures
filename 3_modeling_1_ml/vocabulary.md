@@ -13,3 +13,17 @@ Detection
 Instance
 
 Segmentation
+
+
+Plot
+Data frame
+Random
+Approximation
+Array
+Interception (intercept)
+Evaluation
+Mean absolute error
+Mean Squared Error (MSE)
+Root Mean Squared Error (RMSE)
+R-squared
+Predict
