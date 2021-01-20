@@ -82,12 +82,28 @@ print(f"db.test_collection.find_one():\n{pprint.pformat(db.test_collection.find_
 
 print(f"{'-' * num_sep}\n")
 
+# получить все документы из коллекции
+print("db.test_collection.find():")
+for doc in db.test_collection.find():
+    print(f"id: {doc['_id']}")
+    # print(f"{pprint.pformat(doc)}\n")
+
+print(f"{'-' * num_sep}\n")
+
 # получить один документ удовлетворяющий условию из коллекции (такой существует)
 print(f"db.test_collection.find_one({{'author': 'Mike'}}):\n"
       f"{pprint.pformat(db.test_collection.find_one({'author': 'Mike'}))}\n")
 
 # получить один документ удовлетворяющий условию из коллекции (такого не существует)
 print(f"db.test_collection.find_one({{'author': 'Eliot'}}): {db.test_collection.find_one({'author': 'Eliot'})}\n")
+
+print(f"{'-' * num_sep}\n")
+
+# получить все документы удовлетворяющие условию из коллекции
+print("db.test_collection.find({{'author': 'Ira'}}):")
+for doc in db.test_collection.find({'author': 'Ira'}):
+    print(f"id: {doc['_id']}")
+    # print(f"{pprint.pformat(doc)}\n")
 
 print(f"{'-' * num_sep}\n")
 
@@ -100,5 +116,7 @@ print(f"db.test_collection.find_one({{'_id': {one_post_id}}}):\n"
 # можно преобразовать строку bson.objectid.ObjectId(str_id)
 print(f"db.test_collection.find_one({{'_id': str({one_post_id})}}): "
       f"{pprint.pformat(db.test_collection.find_one({'_id': str(one_post_id)}))}\n")
+
+
 
 print(f"{'*' * num_sep}\n")
