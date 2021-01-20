@@ -1,7 +1,6 @@
 from pymongo import MongoClient
 import datetime
 
-# https://api.mongodb.com/python/current/tutorial.html
 try:
     # MongoClient('mongodb://localhost:27017/')
     client = MongoClient('localhost', 27017)
