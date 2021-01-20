@@ -1,36 +1,60 @@
 from pymongo import MongoClient
 import datetime
+import pprint
 
-try:
-    # MongoClient('mongodb://localhost:27017/')
-    client = MongoClient('localhost', 27017)
-    print('client: ', client)
+print(f"{'-'*50}\n")
 
-    # db = client['test-database']
-    db = client['test-database']
-    print('db: ', db)
+# -----Подключение----------------------------------------------------------------
 
-    # collection = db['test_collection']
-    collection = db.test_collection
-    print('collection: ', collection)
+# Установление соединения с MongoClient
+# MongoClient('mongodb://localhost:27017/')
+client = MongoClient('localhost', 27017)
+print(f"client: {client}\n")
 
-    post = {"author": "Mike",
-            "text": "My first blog post!",
-            "tags": ["mongodb", "python", "pymongo"],
-            "date": datetime.datetime.utcnow()}
+# Получение базы данных
+# db = client['test-database']
+db = client['test-database']
+print(f"db: {db}\n")
 
-    post_id = db.test_collection.insert_one(post).inserted_id
-    print('post_id: ', post_id)
+# Получение коллекции
+# collection = db['test_collection']
+collection = db.test_collection
+print(f"collection: {collection}\n")
+print(f"{'-'*50}\n")
 
-    print('db.list_collection_names(): ', db.list_collection_names())
+# ------Добавление------------------------------------------------------------------------------------------------------
+post = {"author": "Mike",
+        "text": "My first blog post!",
+        "tags": ["mongodb", "python", "pymongo"],
+        "date": datetime.datetime.utcnow()}
 
-    print('db.test_collection.find_one(): ', db.test_collection.find_one())
+# добавить один документ и получить его id
+post_id = db.test_collection.insert_one(post).inserted_id
+print(f"db.test_collection.insert_one(post).inserted_id: {post_id}\n")
 
-    print('db.test_collection.find_one({"author": "Mike"}): ', db.test_collection.find_one({"author": "Mike"}))
-    print('db.test_collection.find_one({"author": "Eliot"}): ', db.test_collection.find_one({"author": "Eliot"}))
+# DeprecationWarning: insert is deprecated. Use insert_one or insert_many instead
+# post_id = db.test_collection.insert(post)
+# print(f"insert(post).inserted_id: {post_id}\n")
 
-except Exception as err:
-    print(err)
+# ------Обновление------------------------------------------------------------------------------------------------------
+
+# ------Удаление--------------------------------------------------------------------------------------------------------
+
+# ------Запросы---------------------------------------------------------------------------------------------------------
+
+# получить имена коллекций из БД
+print('db.list_collection_names(): ', db.list_collection_names())
+
+# получить один любой документ из коллекции
+print('db.test_collection.find_one(): ')
+pprint.pprint(db.test_collection.find_one())
+print()
+
+print('db.test_collection.find_one({"author": "Mike"}: ', db.test_collection.find_one({"author": "Mike"}))
+print('db.test_collection.find_one({"author": "Eliot"}): ', db.test_collection.find_one({"author": "Eliot"}))
+
+
+
 
 
 
