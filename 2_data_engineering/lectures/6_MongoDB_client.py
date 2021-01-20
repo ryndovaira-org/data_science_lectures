@@ -117,6 +117,13 @@ print(f"db.test_collection.find_one({{'_id': {one_post_id}}}):\n"
 print(f"db.test_collection.find_one({{'_id': str({one_post_id})}}): "
       f"{pprint.pformat(db.test_collection.find_one({'_id': str(one_post_id)}))}\n")
 
+print(f"{'-' * num_sep}\n")
 
+# количество документов в коллекции
+print(f"db.test_collection.count_documents({{}}): {db.test_collection.count_documents({})}\n")
+
+# количество документов удовлетворяющих условию в коллекции
+print(f"db.test_collection.count_documents({{'author': 'Ira'}}): "
+      f"{db.test_collection.count_documents({'author': 'Ira'})}\n")
 
 print(f"{'*' * num_sep}\n")
