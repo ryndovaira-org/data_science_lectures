@@ -66,7 +66,6 @@ print(f"db.test_collection.insert_many(many_posts).inserted_ids:\n"
       f"\tvalue = {many_post_ids}\n")
 
 print(f"{'*' * num_sep}\n")
-
 # ------Запросы---------------------------------------------------------------------------------------------------------
 
 # получить имена коллекций из БД
@@ -124,11 +123,55 @@ print(f"db.test_collection.count_documents({{'author': 'Ira'}}): "
       f"{db.test_collection.count_documents({'author': 'Ira'})}\n")
 
 print(f"{'*' * num_sep}\n")
-
 # ------Обновление------------------------------------------------------------------------------------------------------
 
-print(f"{'*' * num_sep}\n")
+# попытаться обновить один документ и получить количество обновленных (0 или 1)
+update_one_result = db.test_collection.update_one({'author': 'Ira'}, {'$set': {'text': '!!!Cute frogs!!!'}})
+print(f"db.test_collection.update_one({{'author': 'Ira'}}, {{'$set': {{'text': '!!!Cute frogs!!!'}}):\n"
+      f"\ttype = {type(update_one_result)}\n"
+      f"\tvalue = {update_one_result}\n")
+one_matched_count = update_one_result.matched_count
+print(f"db.test_collection.update_one({{'author': 'Ira'}}, {{'$set': {{'text': '!!!Cute frogs!!!'}}).matched_count:\n"
+      f"\ttype = {type(one_matched_count)}\n"
+      f"\tvalue = {one_matched_count}\n")
+one_modified_count = update_one_result.modified_count
+print(f"db.test_collection.update_one({{'author': 'Ira'}}, {{'$set': {{'text': '!!!Cute frogs!!!'}}).modified_count:\n"
+      f"\ttype = {type(one_modified_count)}\n"
+      f"\tvalue = {one_modified_count}\n")
 
+update_one_result = db.test_collection.update_one({'author': 'Cat'}, {'$set': {'text': '!!!Cute frogs!!!'}})
+print(f"db.test_collection.update_one({{'author': 'Cat'}}, {{'$set': {{'text': '!!!Cute frogs!!!'}}):\n"
+      f"\ttype = {type(update_one_result)}\n"
+      f"\tvalue = {update_one_result}\n")
+one_matched_count = update_one_result.matched_count
+print(f"db.test_collection.update_one({{'author': 'Cat'}}, {{'$set': {{'text': '!!!Cute frogs!!!'}}).matched_count:\n"
+      f"\ttype = {type(one_matched_count)}\n"
+      f"\tvalue = {one_matched_count}\n")
+one_modified_count = update_one_result.modified_count
+print(f"db.test_collection.update_one({{'author': 'Cat'}}, {{'$set': {{'text': '!!!Cute frogs!!!'}}).modified_count:\n"
+      f"\ttype = {type(one_modified_count)}\n"
+      f"\tvalue = {one_modified_count}\n")
+
+print(f"{'-' * num_sep}\n")
+
+# попытаться обновить все документы удовлетворяющие условию и получить количество обновленных
+update_many_result = db.test_collection.update_many({'text': 'bla bla bla'}, {'$set': {'text': 'New cool text'}})
+print(f"db.test_collection.update_many({{'text': 'bla bla bla'}}, {{'$set': {{'text': 'New cool text'}}):\n"
+      f"\ttype = {type(update_many_result)}\n"
+      f"\tvalue = {update_many_result}\n")
+many_matched_count = update_many_result.matched_count
+print(f"db.test_collection.update_many({{'text': 'bla bla bla'}}, "
+      f"{{'$set': {{'text': 'New cool text'}}).matched_count:\n"
+      f"\ttype = {type(many_matched_count)}\n"
+      f"\tvalue = {many_matched_count}\n")
+many_modified_count = update_many_result.modified_count
+print(f"db.test_collection.update_many({{'text': 'bla bla bla'}}, "
+      f"{{'$set': {{'text': 'New cool text'}}).modified_count:\n"
+      f"\ttype = {type(many_modified_count)}\n"
+      f"\tvalue = {many_modified_count}\n")
+
+
+print(f"{'*' * num_sep}\n")
 # ------Удаление--------------------------------------------------------------------------------------------------------
 
 # попытаться удалить один документ и получить количество удаленных (0 или 1)
