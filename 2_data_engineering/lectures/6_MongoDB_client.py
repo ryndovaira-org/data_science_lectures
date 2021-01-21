@@ -25,13 +25,13 @@ print(f"{'*' * num_sep}\n")
 
 # ------Добавление------------------------------------------------------------------------------------------------------
 one_post = {"author": "Mike",
-            "text": "My first blog post!",
+            "text": "bla bla bla",
             "tags": ["mongodb", "python", "pymongo"],
             "date": datetime.datetime.utcnow()}
 
 # добавить один документ и получить его id
 insert_one_result = db.test_collection.insert_one(one_post)
-print(f"db.test_collection..insert_one(one_post):\n"
+print(f"db.test_collection.insert_one(one_post):\n"
       f"\ttype = {type(insert_one_result)}\n"
       f"\tvalue = {insert_one_result}\n")
 one_post_id = insert_one_result.inserted_id
@@ -66,9 +66,6 @@ print(f"db.test_collection.insert_many(many_posts).inserted_ids:\n"
       f"\tvalue = {many_post_ids}\n")
 
 print(f"{'*' * num_sep}\n")
-# ------Обновление------------------------------------------------------------------------------------------------------
-
-# ------Удаление--------------------------------------------------------------------------------------------------------
 
 # ------Запросы---------------------------------------------------------------------------------------------------------
 
@@ -82,10 +79,10 @@ print(f"db.test_collection.find_one():\n{pprint.pformat(db.test_collection.find_
 
 print(f"{'-' * num_sep}\n")
 
-# получить все документы из коллекции
+# получить все документы из коллекции + сортировка по дате
 print("db.test_collection.find():")
-for doc in db.test_collection.find():
-    print(f"id: {doc['_id']}")
+for doc in db.test_collection.find().sort("date"):
+    print(f"id: {doc['_id']}\tdate: {doc['date']}")
     # print(f"{pprint.pformat(doc)}\n")
 
 print(f"{'-' * num_sep}\n")
@@ -125,5 +122,44 @@ print(f"db.test_collection.count_documents({{}}): {db.test_collection.count_docu
 # количество документов удовлетворяющих условию в коллекции
 print(f"db.test_collection.count_documents({{'author': 'Ira'}}): "
       f"{db.test_collection.count_documents({'author': 'Ira'})}\n")
+
+print(f"{'*' * num_sep}\n")
+
+# ------Обновление------------------------------------------------------------------------------------------------------
+
+print(f"{'*' * num_sep}\n")
+
+# ------Удаление--------------------------------------------------------------------------------------------------------
+
+# попытаться удалить один документ и получить количество удаленных (0 или 1)
+delete_one_result = db.test_collection.delete_one({'author': 'Ira'})
+print(f"db.test_collection.delete_one({{'author': 'Ira'}}:\n"
+      f"\ttype = {type(delete_one_result)}\n"
+      f"\tvalue = {delete_one_result}\n")
+one_deleted_count = delete_one_result.deleted_count
+print(f"db.test_collection.delete_one({{'author': 'Ira'}}).deleted_count:\n"
+      f"\ttype = {type(one_deleted_count)}\n"
+      f"\tvalue = {one_deleted_count}\n")
+
+delete_one_result = db.test_collection.delete_one({'author': 'Cat'})
+print(f"db.test_collection.delete_one({{'author': 'Cat'}}:\n"
+      f"\ttype = {type(delete_one_result)}\n"
+      f"\tvalue = {delete_one_result}\n")
+one_deleted_count = delete_one_result.deleted_count
+print(f"db.test_collection.delete_one({{'author': 'Cat'}}).deleted_count:\n"
+      f"\ttype = {type(one_deleted_count)}\n"
+      f"\tvalue = {one_deleted_count}\n")
+
+print(f"{'-' * num_sep}\n")
+
+# попытаться удалить все документы удовлетворяющие условию и получить количество удаленных
+delete_many_result = db.test_collection.delete_many({'text': {'$eq': 'bla bla bla'}})
+print(f"db.test_collection.delete_many({{'text': {{'$eq': 'bla bla bla'}}}}:\n"
+      f"\ttype = {type(delete_many_result)}\n"
+      f"\tvalue = {delete_many_result}\n")
+many_deleted_count = delete_many_result.deleted_count
+print(f"db.test_collection.delete_many({{'text': {{'$eq': 'bla bla bla'}}}}.deleted_count:\n"
+      f"\ttype = {type(many_deleted_count)}\n"
+      f"\tvalue = {many_deleted_count}\n")
 
 print(f"{'*' * num_sep}\n")
