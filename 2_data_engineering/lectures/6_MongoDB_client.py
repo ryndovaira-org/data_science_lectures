@@ -1,6 +1,8 @@
+from bson import ObjectId
 from pymongo import MongoClient
 import datetime
 import pprint
+# import bson.objectid.ObjectId
 
 num_sep = 150
 print(f"{'*' * num_sep}\n")
@@ -24,7 +26,8 @@ print(f"collection: {collection}\n")
 print(f"{'*' * num_sep}\n")
 
 # ------Добавление------------------------------------------------------------------------------------------------------
-one_post = {"author": "Mike",
+one_post = {"_id": ObjectId("012345678901234567890123"),    # "_id": 555
+            "author": "Mike",
             "text": "bla bla bla",
             "tags": ["mongodb", "python", "pymongo"],
             "date": datetime.datetime.utcnow()}
