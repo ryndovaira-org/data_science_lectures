@@ -11,11 +11,15 @@ print(f"{'*' * num_sep}\n")
 
 # Установление соединения с MongoClient
 # MongoClient('mongodb://localhost:27017/')
-client = MongoClient('localhost', 27017)
+client = MongoClient(host='localhost', port=27017)
 print(f"client: {client}\n")
 
-# Получение базы данных
-# db = client['test-database']
+# Удалить БД
+# Если такой БД нет, то ничего не произойдет
+client.drop_database('test-database')
+
+# Получение базы данных (или создание)
+# ВНИМАНИЕ: В MongoDB БД не создается до тех пор пока нет нет контента
 db = client['test-database']
 print(f"db: {db}\n")
 
