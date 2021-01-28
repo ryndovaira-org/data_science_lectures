@@ -1,29 +1,30 @@
+# -----Импорт пакетов-------------------------------------------------------------
+
 from bson import ObjectId
 from pymongo import MongoClient
 import datetime
 import pprint
-# import bson.objectid.ObjectId
 
 num_sep = 150
 print(f"{'*' * num_sep}\n")
 
 # -----Подключение----------------------------------------------------------------
 
-# Установление соединения с MongoClient
+# Установить соединение с MongoClient
 # MongoClient('mongodb://localhost:27017/')
 client = MongoClient(host='localhost', port=27017)
 print(f"client: {client}\n")
 
-# Удалить БД
-# Если такой БД нет, то ничего не произойдет
+# удалить БД
+# если такой БД нет, то ничего не произойдет
 client.drop_database('test-database')
 
-# Получение базы данных (или создание)
-# ВНИМАНИЕ: В MongoDB БД не создается до тех пор пока нет нет контента
+# получить (создать) БД
+# ВНИМАНИЕ: в MongoDB БД не создается до тех пор пока нет нет контента
 db = client['test-database']
 print(f"db: {db}\n")
 
-# Получение коллекции
+# получить (создать) коллекцию
 # collection = db['test_collection']
 collection = db.test_collection
 print(f"collection: {collection}\n")
@@ -93,11 +94,11 @@ for doc in db.test_collection.find().sort("date"):
 
 print(f"{'-' * num_sep}\n")
 
-# получить один документ удовлетворяющий условию из коллекции (такой существует)
+# получить один документ из коллекции удовлетворяющий условию (такой существует)
 print(f"db.test_collection.find_one({{'author': 'Mike'}}):\n"
       f"{pprint.pformat(db.test_collection.find_one({'author': 'Mike'}))}\n")
 
-# получить один документ удовлетворяющий условию из коллекции (такого не существует)
+# получить один документ из коллекции удовлетворяющий условию (такого не существует)
 print(f"db.test_collection.find_one({{'author': 'Eliot'}}): {db.test_collection.find_one({'author': 'Eliot'})}\n")
 
 print(f"{'-' * num_sep}\n")
