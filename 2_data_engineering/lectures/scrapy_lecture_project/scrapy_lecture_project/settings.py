@@ -1,4 +1,4 @@
-# Scrapy settings for lecture_project project
+# Scrapy settings for scrapy_lecture_project project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'lecture_project'
+BOT_NAME = 'scrapy_lecture_project'
 
-SPIDER_MODULES = ['lecture_project.spiders']
-NEWSPIDER_MODULE = 'lecture_project.spiders'
+SPIDER_MODULES = ['scrapy_lecture_project.spiders']
+NEWSPIDER_MODULE = 'scrapy_lecture_project.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'lecture_project (+http://www.yourdomain.com)'
+#USER_AGENT = 'scrapy_lecture_project (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'lecture_project.middlewares.LectureProjectSpiderMiddleware': 543,
+#    'scrapy_lecture_project.middlewares.ScrapyLectureProjectSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'lecture_project.middlewares.LectureProjectDownloaderMiddleware': 543,
+#    'scrapy_lecture_project.middlewares.ScrapyLectureProjectDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'lecture_project.pipelines.LectureProjectPipeline': 300,
+#    'scrapy_lecture_project.pipelines.ScrapyLectureProjectPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
