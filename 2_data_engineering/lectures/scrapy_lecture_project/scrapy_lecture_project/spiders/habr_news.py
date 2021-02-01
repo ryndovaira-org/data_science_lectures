@@ -3,8 +3,16 @@ from scrapy import Request
 
 
 class HabrNews(scrapy.Item):
-    header = scrapy.Field()
-    link = scrapy.Field()
+    news_id = scrapy.Field()
+    title = scrapy.Field()
+    hubs = scrapy.Field()
+    text = scrapy.Field()
+    tags = scrapy.Field()
+    author = scrapy.Field()
+    author_specialization = scrapy.Field()
+    author_karma = scrapy.Field()
+    author_rating = scrapy.Field()
+    comments_counter = scrapy.Field()
 
 
 class HabrNewsSpider(scrapy.Spider):
@@ -14,16 +22,12 @@ class HabrNewsSpider(scrapy.Spider):
 
     def parse(self, response):
         for news in response.css('a.post__title_link'):
-            # item = HabrNews()
-            # item['header'] = news.css('a::text')[0].root.strip()
-            # item['link'] = news.css('a::attr(href)')[0].root.strip()
-            # yield item
             link = news.css('a::attr(href)')[0].root.strip()
             yield Request(link, callback=self.parse_item_news)
 
         next_page = response.css('a.arrows-pagination__item-link_next::attr(href)')
         if len(next_page) > 0:
-            yield Request('https://habr.com' + next_page[0].root.strip(), callback=self.parse_item_news)
+            yield Request('https://habr.com' + next_page[0].root.strip(), callback=self.parse)
 
     def parse_item_news(self, response):
         # TODO: Проверки
@@ -47,7 +51,19 @@ class HabrNewsSpider(scrapy.Spider):
         author_rating = response.css('div.stacked-counter__value_magenta::text')[0].root.strip().replace(',', '.')
 
         comments_counter = response.css('span.comments-section__head-counter::text')[0].root.strip()
-        ...
+
+        item = HabrNews()
+        item['news_id'] = int(news_id)
+        item['title'] = title
+        item['hubs'] = hubs
+        item['text'] = text
+        item['tags'] = tags
+        item['author'] = author
+        item['author_specialization'] = author_specialization
+        item['author_karma'] = float(author_karma)
+        item['author_rating'] = float(author_rating)
+        item['comments_counter'] = int(comments_counter)
+        yield item
 
 
 if __name__ == '__main__':
