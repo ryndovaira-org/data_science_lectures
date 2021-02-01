@@ -1,41 +1,16 @@
 import scrapy
 from scrapy import Request
 
-
-class HabrPost(scrapy.Item):
-    header = scrapy.Field()
-    link = scrapy.Field()
-
-
-class HabrNews(scrapy.Item):
-    header = scrapy.Field()
-    link = scrapy.Field()
-
-
-class HabrHub(scrapy.Item):
-    header = scrapy.Field()
-    link = scrapy.Field()
-    subscribers_count = scrapy.Field()
-    rating_cout = scrapy.Field()
-
-class HabrAuthor(scrapy.Item):
-    fullname = scrapy.Field()
-    nickname = scrapy.Field()
-    link = scrapy.Field()
-    karma_count = scrapy.Field()
-    rating_cout = scrapy.Field()
-
 class HabrCompany(scrapy.Item):
     header = scrapy.Field()
     link = scrapy.Field()
     subscribers_count = scrapy.Field()
     rating_cout = scrapy.Field()
 
-
-class HabrSpider(scrapy.Spider):
+class HabrCompaniesSpider(scrapy.Spider):
     name = 'habr'
     allowed_domains = ['habr.com']
-    start_urls = ['https://habr.com/ru/top/']
+    start_urls = ['https://habr.com/ru/companies/']
 
     def parse(self, response):
         for navigation_link in response.css('a.tabs-menu__item_link'):
