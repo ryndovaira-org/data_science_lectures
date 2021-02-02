@@ -12,7 +12,7 @@ class HabrCompany(scrapy.Item):
 
 
 class HabrCompaniesSpider(scrapy.Spider):
-    name = 'habr_companies'
+    name = 'habr_companies'     # spider_name
     allowed_domains = ['habr.com']
     start_urls = ['https://habr.com/ru/companies/']
 

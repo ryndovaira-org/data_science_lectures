@@ -16,7 +16,7 @@ class HabrNews(scrapy.Item):
 
 
 class HabrNewsSpider(scrapy.Spider):
-    name = 'habr_news'
+    name = 'habr_news'      # spider_name
     allowed_domains = ['habr.com']
     start_urls = ['https://habr.com/ru/news/']
 
@@ -30,7 +30,6 @@ class HabrNewsSpider(scrapy.Spider):
             yield Request('https://habr.com' + next_page[0].root.strip(), callback=self.parse)
 
     def parse_item_news(self, response):
-        # TODO: Проверки
         news_id = response.url.split('/')[-2]
         title = response.css('span.post__title-text::text')[0].root.strip()
         hubs = []
