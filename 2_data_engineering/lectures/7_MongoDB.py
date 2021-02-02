@@ -10,7 +10,7 @@ print(f"{'*' * num_sep}\n")
 
 # -----Подключение----------------------------------------------------------------
 
-# Установить соединение с MongoClient
+# установить соединение с MongoClient
 # MongoClient('mongodb://localhost:27017/')
 client = MongoClient(host='localhost', port=27017)
 print(f"client: {client}\n")
@@ -127,8 +127,15 @@ print(f"{'-' * num_sep}\n")
 print(f"db.test_collection.count_documents({{}}): {db.test_collection.count_documents({})}\n")
 
 # количество документов удовлетворяющих условию в коллекции
-print(f"db.test_collection.count_documents({{'author': 'Ira'}}): "
-      f"{db.test_collection.count_documents({'author': 'Ira'})}\n")
+print(f"db.test_collection.count_documents({{'tags': ['bulk']}}): "
+      f"{db.test_collection.count_documents({'tags': ['bulk']})}\n")
+
+# безотносительно порядка или других элементов в массиве используйте оператор $all
+print(f"db.test_collection.count_documents({{'tags': {{'$all': ['bulk']}}}}): "
+      f"{db.test_collection.count_documents({'tags': {'$all': ['bulk']}})}\n")
+
+print(f"db.test_collection.count_documents({{'tags': ['bulk', 'insert']}}): "
+      f"{db.test_collection.count_documents({'tags': ['bulk', 'insert']})}\n")
 
 print(f"{'*' * num_sep}\n")
 # ------Обновление------------------------------------------------------------------------------------------------------
