@@ -42,8 +42,8 @@ class HabrCompaniesSpider(scrapy.Spider):
         item['name'] = name
         item['link'] = link
         item['info'] = info
-        item['counter_subscribers'] = counter_subscribers
-        item['counter_rating'] = counter_rating
+        item['counter_subscribers'] = float(counter_subscribers.replace(',', '.').replace('\xa0', '').replace('k', '000'))
+        item['counter_rating'] = int(counter_rating.replace(',', '').replace('\xa0', ''))
         item['tags'] = tags
 
         yield item
