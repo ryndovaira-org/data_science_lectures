@@ -42,3 +42,6 @@ print(f"db.habr_news_collection.count_documents({{}}): {db.habr_news_collection.
 
 # получить один любой документ из коллекции
 print(f"db.test_collection.find_one():\n{pprint.pformat(db.habr_news_collection.find_one())}\n")
+
+
+print(f"db.test_collection.find_one():\n{pprint.pformat(db.habr_news_collection.find_one({'news_id': 529690}))}\n")
