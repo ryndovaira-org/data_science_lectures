@@ -1,5 +1,6 @@
 import scrapy
 from scrapy import Request
+from scrapy.crawler import CrawlerProcess
 
 
 class HabrCompany(scrapy.Item):
@@ -12,7 +13,7 @@ class HabrCompany(scrapy.Item):
 
 
 class HabrCompaniesSpider(scrapy.Spider):
-    name = 'habr_companies'     # spider_name
+    name = 'habr_companies'  # spider_name
     allowed_domains = ['habr.com']
     start_urls = ['https://habr.com/ru/companies/']
 
@@ -31,7 +32,8 @@ class HabrCompaniesSpider(scrapy.Spider):
 
         next_page = response.css('a.arrows-pagination__item-link_next::attr(href)')
         if len(next_page) > 0:
-            yield Request('https://habr.com' + next_page[0].root.strip(), callback=self.parse)
+            yield Request('https://habr.com' + next_page[0].root.strip(),
+                          callback=self.parse)
 
     def parse_item_companies(self, response, counter_subscribers, counter_rating, tags):
         link = response.url
@@ -42,14 +44,32 @@ class HabrCompaniesSpider(scrapy.Spider):
         item['name'] = name
         item['link'] = link
         item['info'] = info
-        item['counter_subscribers'] = float(counter_subscribers.replace(',', '.').replace('\xa0', '').replace('k', '000'))
+        item['counter_subscribers'] = float(counter_subscribers
+                                            .replace(',', '.')
+                                            .replace('\xa0', '')
+                                            .replace('k', '000'))
         item['counter_rating'] = int(counter_rating.replace(',', '').replace('\xa0', ''))
         item['tags'] = tags
 
         yield item
 
 
-if __name__ == '__main__':
-    from scrapy.cmdline import execute
+# if __name__ == '__main__':
+#     from scrapy.cmdline import execute
+#
+#     execute()
 
-    execute()
+if __name__ == '__main__':
+    process = CrawlerProcess(settings={
+        "FEEDS": {
+            # сохранить результаты в файлы
+            "./../../habr_companies.json": {"format": "json"},
+            "./../../habr_companies.csv": {"format": "csv"},
+        },
+        "LOG_LEVEL": "ERROR"        # без логов в терминале
+    })
+
+    process.crawl(HabrCompaniesSpider)
+
+    # the script will block here until the crawling is finished
+    process.start()

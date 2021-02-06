@@ -1,5 +1,6 @@
 import scrapy
 from scrapy import Request
+from scrapy.crawler import CrawlerProcess
 
 
 class HabrNews(scrapy.Item):
@@ -16,7 +17,7 @@ class HabrNews(scrapy.Item):
 
 
 class HabrNewsSpider(scrapy.Spider):
-    name = 'habr_news'      # spider_name
+    name = 'habr_news'  # spider_name
     allowed_domains = ['habr.com']
     start_urls = ['https://habr.com/ru/news/']
 
@@ -65,7 +66,22 @@ class HabrNewsSpider(scrapy.Spider):
         yield item
 
 
-if __name__ == '__main__':
-    from scrapy.cmdline import execute
+# if __name__ == '__main__':
+#     from scrapy.cmdline import execute
+#
+#     execute()
 
-    execute()
+if __name__ == '__main__':
+    process = CrawlerProcess(settings={
+        "FEEDS": {
+            # сохранить результаты в файлы
+            "./../../habr_news.json": {"format": "json"},
+            "./../../habr_news.csv": {"format": "csv"},
+        },
+        "LOG_LEVEL": "ERROR"  # без логов в терминале
+    })
+
+    process.crawl(HabrNewsSpider)
+
+    # the script will block here until the crawling is finished
+    process.start()
