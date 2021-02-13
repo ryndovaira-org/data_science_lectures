@@ -27,6 +27,9 @@
       <excludeFolder url="file://$MODULE_DIR$/5_1_modeling_ml/5_1_2_classification/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/5_1_modeling_ml/5_1_3_clustering/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/3_data_analysis/lectures/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/2_data_engineering/hw_answers/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/3_data_analysis/hw/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/3_data_analysis/hw_answers/.ipynb_checkpoints" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (LevelUp_DataScience)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
