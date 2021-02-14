@@ -20,7 +20,7 @@ print(f"client: {client}\n")
 client.drop_database('test-database')
 
 # получить (создать) БД
-# ВНИМАНИЕ: в MongoDB БД не создается до тех пор пока нет нет контента
+# ВНИМАНИЕ: в MongoDB БД не создается до тех пор пока нет контента
 db = client['test-database']
 print(f"db: {db}\n")
 

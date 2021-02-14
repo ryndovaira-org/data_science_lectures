@@ -49,9 +49,9 @@ print(f"db.habr_companies_collection.count_documents({{}}): {db.habr_companies_c
 print(f"db.list_collection_names(): {db.list_collection_names()}\n")
 
 # получить один любой документ из коллекции
-print(f"db.habr_companies_collection.find_one():\n{pprint.pformat(db.habr_companies_collection.find_one())}\n")
+print(f"db.habr_companies_collection.find_one():\n"
+      f"{pprint.pformat(db.habr_companies_collection.find_one())}\n")
 
-# получить один документ из коллекции удовлетворяющие условию {'name': 'Авито'}
 print(f"db.habr_companies_collection.find_one({{'name': Авито}}):\n"
       f"{pprint.pformat(db.habr_companies_collection.find_one({'name': 'Авито'}))}\n")
 
@@ -102,4 +102,3 @@ many_deleted_count = delete_many_result.deleted_count
 print(f"many_deleted_count:\n"
       f"\ttype = {type(many_deleted_count)}\n"
       f"\tvalue = {many_deleted_count}\n")
-
