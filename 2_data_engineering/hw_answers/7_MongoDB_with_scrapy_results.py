@@ -49,9 +49,11 @@ print(f"db.habr_news_collection.count_documents({{}}): {db.habr_news_collection.
 print(f"db.list_collection_names(): {db.list_collection_names()}\n")
 
 # получить один любой документ из коллекции
-print(f"db.habr_news_collection.find_one():\n{pprint.pformat(db.habr_news_collection.find_one())}\n")
+print(f"db.habr_news_collection.find_one():\n"
+      f"{pprint.pformat(db.habr_news_collection.find_one())}\n")
 
-print(f"db.habr_news_collection.find_one({{'news_id': 529690}}):\n{pprint.pformat(db.habr_news_collection.find_one({'news_id': 529690}))}\n")
+print(f"db.habr_news_collection.find_one({{'news_id': 529690}}):\n"
+      f"{pprint.pformat(db.habr_news_collection.find_one({'news_id': 529690}))}\n")
 
 # получить все документы из коллекции удовлетворяющие условию {'comments_counter': 3} + сортировка по 'news_id'
 for doc in db.habr_news_collection.find({'comments_counter': 3}).sort("news_id"):
