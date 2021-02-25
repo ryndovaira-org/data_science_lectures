@@ -1,5 +1,5 @@
-Country Code,country,population,square
-KZ,Kazakhstan,17.04,2724902
-RU,Russia,143.5,17125191
-BY,Belarus,9.5,207600
-UA,Ukraine,45.5,603628
+,country_code,country,population,square
+0,KZ,Kazakhstan,17.04,2724902
+1,RU,Russia,143.5,17125191
+2,BY,Belarus,9.5,207600
+3,UA,Ukraine,45.5,603628
