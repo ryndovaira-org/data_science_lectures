@@ -71,7 +71,7 @@ class HabrNewsSpider(scrapy.Spider):
             if counter.css('div.stacked-counter__label::text')[0].root.strip() == 'Карма':
                 author_karma = counter.css('div.stacked-counter__value::text')[0].root.strip().replace(',', '.')
             elif counter.css('div.stacked-counter__label::text')[0].root.strip() == 'Рейтинг':
-                author_rating = response.css('div.stacked-counter__value::text')[0].root.strip().replace(',', '.')
+                author_rating = counter.css('div.stacked-counter__value::text')[0].root.strip().replace(',', '.')
             else:
                 print('Something wrong!')
 
