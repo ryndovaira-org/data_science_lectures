@@ -32,21 +32,23 @@ with open('../lectures/scrapy_lecture_project/habr_news.json') as json_file:
 
 # добавить все данные из json в mongodb
 insert_many_result = db.habr_news_collection.insert_many(habr_news)
-print(f"db.habr_news_collection.insert_many(many_posts):\n"
+print(f"db.habr_news_collection.insert_many(habr_news):\n"
       f"\ttype = {type(insert_many_result)}\n"
       f"\tvalue = {insert_many_result}\n")
 many_post_ids = insert_many_result.inserted_ids
-print(f"db.habr_news_collection.insert_many(many_posts).inserted_ids:\n"
+print(f"db.habr_news_collection.insert_many(habr_news).inserted_ids:\n"
       f"\ttype = {type(many_post_ids)}\n"
       f"\tvalue_count = {len(many_post_ids)}\n")
 
 # ------Запросы---------------------------------------------------------------------------------------------------------
 
 # количество документов в коллекции
-print(f"db.habr_news_collection.count_documents({{}}): {db.habr_news_collection.count_documents({})}\n")
+print(f"db.habr_news_collection.count_documents({{}}): "
+      f"{db.habr_news_collection.count_documents({})}\n")
 
 # получить имена коллекций из БД
-print(f"db.list_collection_names(): {db.list_collection_names()}\n")
+print(f"db.list_collection_names(): "
+      f"{db.list_collection_names()}\n")
 
 # получить один любой документ из коллекции
 print(f"db.habr_news_collection.find_one():\n"
