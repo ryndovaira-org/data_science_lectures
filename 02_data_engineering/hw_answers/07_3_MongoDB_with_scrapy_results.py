@@ -67,7 +67,8 @@ print('\n\n')
 for doc in db.habr_news_collection.find({'author': 'avouner'}):
     print(f"news_id: {doc['news_id']}\ttitle: {doc['title']}")
 
-# получить количество документов из коллекции поле tags которых содержит `Научно-популярное` (другие теги тоже допустимы)
+# получить количество документов из коллекции
+# поле tags которых содержит `Научно-популярное` (другие теги тоже допустимы)
 # безотносительно порядка или других элементов в массиве используйте оператор $all
 print(f"db.habr_news_collection.count_documents({{'tags': {{'$all': ['Научно-популярное']}}}}): "
       f"{db.habr_news_collection.count_documents({'tags': {'$all': ['Научно-популярное']}})}\n")
@@ -102,4 +103,3 @@ many_deleted_count = delete_many_result.deleted_count
 print(f"many_deleted_count:\n"
       f"\ttype = {type(many_deleted_count)}\n"
       f"\tvalue = {many_deleted_count}\n")
-
