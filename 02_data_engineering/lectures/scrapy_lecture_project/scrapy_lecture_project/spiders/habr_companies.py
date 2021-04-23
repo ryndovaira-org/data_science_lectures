@@ -66,7 +66,8 @@ if __name__ == '__main__':
             "./../../habr_companies.json": {"format": "json"},
             "./../../habr_companies.csv": {"format": "csv"},
         },
-        "LOG_LEVEL": "ERROR"        # без логов в терминале
+        "LOG_LEVEL": "ERROR",        # без логов в терминале
+        'FEED_EXPORT_ENCODING': 'utf-8'
     })
 
     process.crawl(HabrCompaniesSpider)
