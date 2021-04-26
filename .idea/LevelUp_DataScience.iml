@@ -19,8 +19,6 @@
       <excludeFolder url="file://$MODULE_DIR$/02_data_engineering/hw_answers/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/03_data_analysis/hw/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/03_data_analysis/hw_answers/.ipynb_checkpoints" />
-      <excludeFolder url="file://$MODULE_DIR$/05_modeling_info/lectures/images/.ipynb_checkpoints" />
-      <excludeFolder url="file://$MODULE_DIR$/05_modeling_info/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/06_modeling_ml_regression/hw/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/06_modeling_ml_regression/lectures/images/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/06_modeling_ml_regression/lectures/.ipynb_checkpoints" />
@@ -30,6 +28,8 @@
       <excludeFolder url="file://$MODULE_DIR$/07_modeling_ml_classification/practise/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/07_modeling_ml_classification/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/08_modeling_ml_clustering/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/05_modeling_info_1/lectures/images/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/05_modeling_info_1/.ipynb_checkpoints" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (LevelUp_DataScience)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
