@@ -73,17 +73,17 @@ df = pd.DataFrame({'user_name': pd.Series(['Mr Oleg', 'Mr Oleg',
                                                dtype='float'),
 
                    'item_description': pd.Series([
-                                                     'Little kids love things bright and colorful. They are easily attracted to them. Colorful Learning Blocks set to make your little one playtime educational yet fun. ',
-                                                     'Kids and adults love cats! This animal is stunning. It likes play with all people in living room or bedroom!',
-                                                     'Comfortable seats. Updated interior displays. Beautifully finished interior.',
-                                                     'Operating System: Android (Google Assistant & Chromecast in-built). You can enjoy a stunning viewing experience in your living room or bedroom.',
-                                                     'Blocks for the creative minds. Perfect for the growing kids. Contains alphabet blocks, 4 animal puzzles and a set of blocks. ',
-                                                     'Operating System: Android (Google Assistant & Chromecast in-built). The Gamma Engine, along with the noise reduction feature, delivers lifelike visuals with dynamic contrast and anti-aliasing to enhance your viewing experience.',
-                                                     'If you like Android, the Samsung Galaxy S21 Ultra is incredibly good.',
-                                                     'This dog is a perfect choice! The dog for free adoption. Perfect for the adults.',
-                                                     'Kittens for free adoption. Perfect for the adults. If you like cats, a kitten is an incredibly good choice.',
-                                                     'Kids and adults love soft toys! It can beautify interior and perfect for the growing kids.'],
-                                                 dtype='string'),
+                       'Little kids love things bright and colorful. They are easily attracted to them. Colorful Learning Blocks set to make your little one playtime educational yet fun. ',
+                       'Kids and adults love cats! This animal is stunning. It likes play with all people in living room or bedroom!',
+                       'Comfortable seats. Updated interior displays. Beautifully finished interior.',
+                       'Operating System: Android (Google Assistant & Chromecast in-built). You can enjoy a stunning viewing experience in your living room or bedroom.',
+                       'Blocks for the creative minds. Perfect for the growing kids. Contains alphabet blocks, 4 animal puzzles and a set of blocks. ',
+                       'Operating System: Android (Google Assistant & Chromecast in-built). The Gamma Engine, along with the noise reduction feature, delivers lifelike visuals with dynamic contrast and anti-aliasing to enhance your viewing experience.',
+                       'If you like Android, the Samsung Galaxy S21 Ultra is incredibly good.',
+                       'This dog is a perfect choice! The dog for free adoption. Perfect for the adults.',
+                       'Kittens for free adoption. Perfect for the adults. If you like cats, a kitten is an incredibly good choice.',
+                       'Kids and adults love soft toys! It can beautify interior and perfect for the growing kids.'],
+                       dtype='string'),
 
                    'item_tags': pd.Series(['children, beautiful, good_condition',
                                            'animal, cat, beautiful',
@@ -126,5 +126,11 @@ df = pd.DataFrame({'user_name': pd.Series(['Mr Oleg', 'Mr Oleg',
                                        dtype='string')
                    })
 
-item_tags_df = df.item_tags.apply(lambda x: pd.Series(True, index=[f'tag_{tag}' for tag in x.split(", ")]))
+
+def apply_fun(x):
+    tmp = pd.Series(True, index=[f'tag_{tag}' for tag in x.split(", ")])
+    return tmp
+
+
+item_tags_df = df.item_tags.apply(apply_fun)
 print(item_tags_df)
