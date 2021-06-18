@@ -137,5 +137,6 @@ dmypy.json
 /*/lectures/scrapy_lecture_project/*.csv
 /*/lectures/scrapy_lecture_project/*.json
 /20_interview/examples/serg/*.xls
+
 /change_author_space.sh
 /change_author_password.sh
