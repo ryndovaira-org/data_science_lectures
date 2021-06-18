@@ -132,3 +132,7 @@ dmypy.json
 /20_interview/examples/zyfra/data/X_valid.csv
 /20_interview/examples/zyfra/data/y_train.csv
 */lectures/tmp/
+*/hw_answers/tmp
+/*/lectures/scrapy_lecture_project/*.csv
+/*/lectures/scrapy_lecture_project/*.json
+/20_interview/examples/serg/*.xls
