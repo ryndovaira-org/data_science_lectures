@@ -127,6 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
 /20_interview/examples/zyfra/data/sample_submission.csv
 /20_interview/examples/zyfra/data/X_train.csv
 /20_interview/examples/zyfra/data/X_valid.csv
