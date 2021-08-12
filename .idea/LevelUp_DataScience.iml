@@ -31,7 +31,7 @@
       <excludeFolder url="file://$MODULE_DIR$/07_ml_classification_1/examples/.ipynb_checkpoints" />
       <excludeFolder url="file://$MODULE_DIR$/09_ml_clustering_1/.ipynb_checkpoints" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (LevelUp_DataScience)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (LevelUp_DataScience_Py_R)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">
