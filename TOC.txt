@@ -1,0 +1,1169 @@
+00 Preparation
+
+	00 Prepare Environment (Подготовка рабочего окружения)
+		 Установка PyCharm
+		 Установка Anaconda
+		 Регистрация на GitHub
+		 Подготовка репозитория на GitHub для домашних заданий
+		 Клонирование репозитория с лекциями
+		 Настройка проекта с лекциями в PyCharm
+		 Установка JupyterLab
+		 Установка пакета `nb_conda_kernels`
+		 Синтаксис Markdown
+		 Проверка работоспособности окружения
+01 Introduction
+
+	00 About (Курс Junior Data Scientist)
+		 О преподавателе
+		 Расскажите о себе
+		 Как будут проходить занятия?
+		 Как искать информацию в интернете
+	01 Roadmap (Программа курса)
+02 Basic Terminology
+
+	01 Terminology (Терминология)
+		 Искусственный интеллект (AI = Artificial intelligence)
+		 Большие данные (Big Data)
+		 Информатика (CS = Computer Science)
+		 Математика (Maths)
+		 Знание предметной области (Domain/Business Expertise/Knowledge)
+		 Программное обеспечение (Software)
+		 Машинное обучение (ML = Machine Learning)
+		 Анализ данных (Data analysis)
+		 Наука о данных (DS = Data Science)
+		 Нейронные сети (NNs = Neural Networks)
+		 Глубокое обучение (DL = Deep learning) / Глубокие нейронные сети (DNNs = Deep Neural Networks)
+	02 Ds Lifecycle (Цикл разработки Data Science)
+	03 Ai Roles (Роли в AI команде)
+	04 Etl (ETL)
+		 Типичные этапы ETL-процесса
+		 Практическое применение*
+		 Извлечение данных в ETL
+		 Преобразование данных
+		 Загрузка данных
+03 Utils
+
+	01 Jupyter (Источники) (Базовая информация об интерактивном блокноте Jupyter)
+		 Работа с терминалом из `Jupyter`
+			 Установка пакетов через `conda`
+			 Удаление файлов
+			 Получение списка файлов в текущей директории
+			 Получение списка файлов в директории `images`
+			 Скачивание файла из интернета по ссылке
+		 Магия jupyter
+	02 Toc (Jupyter Lab)
+		 Table of Contents (TOC)
+			 Установка NodeJS с помощью Conda
+			 Установка Table of Contents с помощью Conda
+	03 Colab
+	04 Kaggle
+	05 Git
+	06 Dask ()
+		 Описание
+04 Python Basic
+
+	01 Operators
+	02 Control Structures
+	03 Functions
+	04 Builtin Data Structures
+	05 Date Time
+	06 Files
+	07 Oop
+	08 Exceptions
+	09 Logs
+05 Python Advanced
+
+	01 Oop
+	02 Decorators
+	03 Regex
+	04 Concurrent
+	05 Async
+06 Data Formats
+
+	01 Json
+	02 Xml
+	03 Toml
+	04 Csv
+	05 Pickle
+	06 Databases
+	07 Vector Matrix Numpy (Пакет `NumPy`: матрицы и операции над ними)
+		 Подготовка окружения
+		 Термины: матрица (matrix), вектор (vector) и скаляр (scalar)?
+		  Пакет `NumPy`
+		 Примеры использовать `NumPy`
+			 Вектор и Список
+			 Матрицы
+		 Операции с матрицами
+			 Сложение и вычитание матриц
+		 Умножение матриц
+			 Умножение матриц
+		 Обратная матрица
+		 Транспонирование матриц
+	08 Tabular Pandas (Пакет `pandas`: основная информация)
+		 Подготовка окружения
+		 `DataFrame` и `Series`
+			 `Series`
+			 `DataFrame`
+			 Чтение и запись данных
+	09 Time Series Pandas (Домашнее задание по теме: пакет `pandas` (анализ временных рядов))
+		 Подготовка окружения
+		 Загрузка данных
+	10 Numpy Pandas Types (Пакеты `pandas` и `numpy`: типы данных)
+		 Подготовка окружения
+		 Обзор типов данных
+		 Пакет `numpy`: типы данных
+			 Список типов `NumPy`
+			 [Ошибки переполнения (Overflow Errors)](https://numpy.org/doc/stable/user/basics.types.html	overflow-errors)
+		 Пакет `Pandas`: типы данных
+			 [Категориальные данные (Categorical data)](https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html	categorical)
+				 Вид данных
+				 Применение категориального типа данных
+					 Использование памяти (Memory usage)
+					 Сортировка и порядок (Sorting and order)
+					 Другие библиотеки `Python`
+			 [Разреженные структуры данных (Sparse data structures)](https://pandas.pydata.org/pandas-docs/stable/user_guide/sparse.html	sparse)
+				 Вид данных
+				 Обзор `SparseArray`
+				 Использование памяти (Memory usage)
+			 [Интервальный индекс (IntervalIndex)](https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html	advanced-intervalindex)
+				 Вид данных
+				 Индексирование с помощью `IntervalIndex`
+				 Группировка данных с помощью `cut` и `qcut`
+				 Генерация диапазонов интервалов
+			 [Обработка часовых поясов (Time zone handling)](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html	timeseries-timezone)
+				 Вид данных
+				 Список часовых поясов из пакета `dateutil`
+				 Список часовых поясов из пакета `pytz`
+				 Обзор `tz_localize`
+				 Нулевые даты
+				 Арифметические операции с `Timestamp`
+			 [Представление промежутка времени (Time span representation)](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html	timeseries-periods)
+				 Вид данных
+				 Обзор `Period`
+				 Нулевые промежутки времени
+				 Арифметические операции с `Period`
+			 [Обнуляемый целочисленный тип данных (Nullable integer data type)](https://pandas.pydata.org/pandas-docs/stable/user_guide/integer_na.html	integer-na)
+				 Вид данных
+				 Создание
+				 Операции
+				 Скалярное значение `NA`
+			 [Обнуляемый логический тип данных (Nullable Boolean / Boolean data with missing values)](https://pandas.pydata.org/pandas-docs/stable/user_guide/boolean.html)
+				 Вид данных
+				 Обзор обнуляемого логического типа данных
+				 Троичная / Трёхзначная логика (Логика Клини)
+			 [Текстовые типы данных (Text data types)](https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html)
+				 Обзор строкового типа данных
+				 Отличия типа `StringDtype` от типа `object`
+07 Databases
+
+	01 Terminology
+	02 Relational Db
+	03 Sql (SQL)
+		 Реляционная база данных
+	04 Mysql (MySQL)
+		 Терминология
+			 *Закрытие соединения с БД
+			 Проверка заполнения таблицы `employees` и примеры использования
+			 Проверка заполнения таблицы `departments` и примеры использования
+			 Проверка заполнения таблицы `employees_departments` и примеры использования
+			 Проверка заполнения таблицы `salaries` и примеры использования
+			 Получение данных (с условиями)
+			 Оператор [UNION](https://www.w3resource.com/mysql/mysql-union.php)
+			 Использование [JOIN](https://www.w3resource.com/mysql/advance-query-in-mysql/mysql-joins.php)
+			 Использование [подзапросов](https://www.w3resource.com/sql/subqueries/understanding-sql-subqueries.php) в `SELECT`
+				 В условии в выражении `WHERE`
+				 В качестве спецификации столбца в выражении `SELECT`
+				 В качестве таблицы для выборки в выражении `FROM`
+				 В условии в выражении `HAVING`
+			 *[MySQL ALTER TABLE](https://www.w3resource.com/mysql/altering-table/altering-table.php)
+	05 Non Relational Db (NoSQL)
+		 Что такое NoSQL?
+		 *BASE
+		 Типы NoSQL систем
+			 Ключ — значение (англ. key-value store)
+			 Документоориентированные (document store)
+			 Семейство столбцов (column-family store)
+			 Графовые
+	06 Mongodb (MongoDB)
+		 Терминология
+			 MongoDB подходит для следующих применений
+				 Селекторы запросов
+				 Операторы обновления (Update Operators)
+	07 New Sql Db
+08 Web Scraping
+
+	01 Web Scraping (Веб-скрапинг (Web scraping))
+		 Обзор пакетов для веб-крапинга
+		 Выбор подходящего пакета (библиотеки)
+		 Создание проекта и проверка работоспособности
+		 Изучение структуры сайта
+		 Создание "паука"
+			 Добавление настроек в `Settings.py`
+			 Отладка через Pycharm
+			 Запуск Паука из терминала и сохранение результатов в файл
+			 Python теоретический минимум
+	02 Scripy (Веб-скрапинг (Web scraping))
+		 Обзор пакетов для веб-крапинга
+		 Выбор подходящего пакета (библиотеки)
+		 Создание проекта и проверка работоспособности
+		 Изучение структуры сайта
+		 Создание "паука"
+			 Добавление настроек в `Settings.py`
+			 Отладка через Pycharm
+			 Запуск Паука из терминала и сохранение результатов в файл
+			 Python теоретический минимум
+09 Data Analysis
+
+	01 Pandas Descriptive Statistic (Пакет `pandas`: Описательная статистика)
+		 Загрузка данных
+		 Что такое описательная статистика?
+		 Основные статистические показатели
+			 Меры центральной тенденции (Меры среднего уровня)
+					 **Робастность (Robustness)**
+				 **Квантиль (Quantile)**
+			 Меры разброса данных (Меры рассеяния)
+					 **Правило трёх сигм**
+					 **Асимметрия (Skewness) или 3-й центральный момент (3rd moment)**
+					 **Коэффициент эксцесса (Kurtosis) или 4-й центральный момент (4th moment)**
+		 Пакет `pandas`: метод `describe`
+	05 Pandas Groupby (Пакет `pandas`: группировка и агрегирование)
+		 Подготовка окружения
+		 Загрузка данных
+		 Split-Apply-Combine
+		 Группировка и агрегирование
+			 `mean()`: среднее значение для каждой группы
+			 `sum()`: сумма значений для каждой группы
+			 `size()`: размер (количество строк) каждой группы
+			 `count()`: количество значений в каждой группе
+			 `std()`: стандартное отклонение (standard deviation) для каждой группы
+			 `var()`: дисперсия для каждой группы
+			 `sem()`: стандартная ошибка среднего (Standard Error of the Mean) для каждой группы
+			 `describe()`: описательная статистика
+			 `first()`: первое из значений группы
+			 `last()`: последнее из значений группы
+			 `nth()`: n-е значение или подмножество, если n - список
+			 `min()`: минимальное значение для каждой группы
+			 `max()`: максимальное значение для каждой группы
+		 Группировка по нескольким параметрам
+	06 Pandas Pivot (Пакет `pandas`: сводные таблицы)
+		 Подготовка окружения
+		 Загрузка данных
+		 Что такое сводная таблица?
+		 Многоуровневые сводные таблицы
+		 Дополнительные параметры сводной таблицы
+	07 Pandas Time Series (Пакет `pandas`: анализ временных рядов)
+		 Подготовка окружения
+		 Что такое временно́й ряд и анализ временны́х рядов?
+		 Анализ временных рядов с помощью `pandas`
+			 Метод `resample`
+	08 Scale Types (Типы шкал в статистике)
+		 Подготовка окружения
+		 Типы шкал и их свойства согласно классификации Стэнли Смита Стивенса
+		 Примеры
+			 Опросник
+			 Геоинформационная система (ГИС)
+			 В спортивных соревнованиях
+			 Дополнительные примеры
+	12 Correlation Dependence (Корреляция и зависимость)
+		 Подготовка окружения
+		 Загрузка данных
+		 Что такое корреляция?
+			 Величина и сила коэффициента корреляции
+				 Шкала Чеддока для качественной оценки для показателей тесноты связи
+			 Отличие корреляции от причинно-следственной связи
+			 Ложная корреляция (Spurious relationship/correlation)
+				 Примеры ложной корреляции
+				 *Проверка гипотез
+				 Обнаружение ложной зависимости
+					 Эксперименты
+					 *Неэкспериментальный статистический анализ
+		 Корреляционный анализ
+				 Обзор методов вычисления коэффициента корреляции
+			 *Ограничения корреляционного анализа
+		 *Канонический корреляционный анализ (Canonical Correlation Analysis)
+		 Параметрические показатели корреляции
+			 Ковариация (Covariance)
+				 Свойства
+				 Интерпретация
+				 Ковариационная матрица (Covariance matrix)
+			 Линейный коэффициент корреляции (коэффициент корреляции Пирсона) или просто **коэффициент корреляции**
+		 Непараметрические показатели корреляции
+			 Коэффициент ранговой корреляции Кендалла
+			 Коэффициент ранговой корреляции Спирмена
+			 *Коэффициент корреляции знаков Фехнера
+			 *Множественный коэффициент корреляции
+			 *Коэффициент множественной ранговой корреляции (конкордации)
+		 Коэффициент детерминации
+			 Интерпретация
+			 Недостатки и альтернативные показатели
+		 Матрица корреляции (`seaborn.heatmap`)
+		 Матрица рассеивания (`pandas.plotting.scatter_matrix`)
+		 `seaborn.pairplot`
+		 `seaborn.PairGrid`
+	13 Pandas Profiling (Пакет Pandas Profiling)
+		 Подготовка окружения
+		 Загрузка данных
+		 Обзор пакета `pandas_profiling`
+			 Мощность множества (cardinality)
+			 Дискретное равномерное распределение (Discrete uniform distribution)
+			 Пример использования `pandas_profiling`
+10 Visualization
+
+	01 Matplotlib (Пакет `matplotlib`)
+		 Подготовка окружения
+		 Обзор пакета `matplotlib`
+			 Обзор полезных параметров
+				 Конкретный цвет
+				 Цветовая карта
+			 Стили линий
+			 Виды маркеров
+			 Виды штриховки (hatch)
+			 Легенда (legend)
+		 Основные элементы фигуры (Parts of a Figure)
+			 Иерархическая структура рисунка в `matplotlib`
+				 Фигура (Figure)
+			 Область рисования (Axes)
+			 Координатная ось (Axis)
+			 Элементы рисунка (Artists)
+			 `Pyplot`
+		 Объектно-ориентированный интерфейс и интерфейс pyplot
+			 `Pyplot`-стиль (`pyplot`-style)
+			 ОО-стиль (OO-style)
+			 Графики (line plot)
+				 `Pyplot`-стиль
+				 ОО-стиль
+			 Диаграммы разброса (scatter plot)
+				 `Pyplot`-стиль
+				 ОО-стиль
+			 Столбчатые диаграммы (bar chart)
+				 `Pyplot`-стиль
+				 ОО-стиль
+			 Гистограммы (histogram)
+				 `Pyplot`-стиль
+				 ОО-стиль
+			 Круговые диаграммы (pie chart)
+				 `Pyplot`-стиль
+				 ОО-стиль
+			 Ствол-лист диаграммы (stem plot)
+				 `Pyplot`-стиль
+				 ОО-стиль
+			 Ящик с усами (Box Plot)
+				 `Pyplot`-стиль
+				 ОО-стиль
+			 *Диаграмма с областями (stackplot)
+				 `Pyplot`-стиль
+			 *Контурные графики (contour plot)
+				 `Pyplot`-стиль
+			 *Поля градиентов / Колчан (quiver)
+				 `Pyplot`-стиль
+			 *Спектральные диаграммы / Спектрограмма (spectrogram)
+				 `Pyplot`-стиль
+		 3D-графики
+				 ОО-стиль
+		 Рекомендации по использованию различных типов графиков
+	02 Pandas Plot (Пакет `pandas`: визуализация данных)
+		 Загрузка данных
+		 Обзор возможностей пакета `pandas` для рисования графиков (метод `pandas.DataFrame.plot`)
+			 Графики (line plot)
+			 Столбчатые диаграммы — вертикальные (vertical bar plot)
+			 Столбчатые диаграммы — горизонтальные (horizontal bar plot)
+		 Гистограмма (Histogram)
+			 График плотности (Kernel Density Estimation = KDE plot | density)
+			 Ящик с усами (Boxplot)
+			 Диаграмма с областями (area plot)
+			 Круговые диаграммы (pie plot)
+			 Диаграмма рассеяния (scatter plot)
+			 Гексагональный биннинг (hexbin plot)
+	03 Seaborn (Пакет `seaborn`)
+		 Загрузка данных
+		 Обзор пакета `seaborn`
+			 Структура основных модулей пакета `seaborn`
+			 "Длинные (Long-form)" и "широкие (wide-form)" данные
+				 Данные длинной формы (long-form)
+				 Данные широкой формы (wide-form)
+		 Relational plots
+			 `scatterplot`
+			 `lineplot`
+			 `relplot`
+		 Distribution plots
+			 `histplot`
+			 `kdeplot` (kernel density estimation)
+			 *`ecdfplot` (empirical cumulative distribution functions)
+			 `rugplot` (marginal distributions)
+			 `displot`
+		 Categorical plots
+			 `stripplot`
+			 `swarmplot`
+			 `boxplot`
+			 `violinplot`
+			 `pointplot`
+			 `barplot`
+			 `countplot`
+			 `catplot`
+		 Дополнительные примеры
+			 `jointplot`
+	04 Ggplot
+	04 Plotly
+	05 Altair
+	06 Folium
+	07 Holoviews
+	08 Bokeh
+	09 Pdp Ice Plot
+11 Data Preparation
+
+	01 Outliers (Выбросы (Outliers))
+		 Загрузка данных
+		 Выброс (Outlier)
+		 Графическое представление выбросов
+		 Обнаружение выбросов по критериям
+			 Способ основанный на межквартильном расстоянии (Interquartile range = IQR, Tukey's fences)
+			 Способ основанный на Z-оценке (z-score)
+		 Дополнительная информация
+	02 Imbalanced Data (Несбалансированные данные (Imbalanced Data))
+		 Загрузка данных
+			 В чем проблема?
+		 Что такое несбалансированные данные (Imbalanced Data)
+			 Парадокс точности (Accuracy paradox)
+		 Графическое представление несбалансированных данных (Imbalanced Data)
+			 Полезные функции
+			 Анализ графических данных
+		 Подготовка данных
+		 Тактики для борьбы с несбалансированными классами
+			 Проверить результаты на данных без изменений
+			 Собрать больше данных
+			 Изменить метрику оценки "качества"
+			 Ресемплинг (Resampling): Undersampling & Oversampling
+				 Эмпирические правила для over-sampling и under-sampling
+				 Пример использования пакета `imbalanced-learn`: `RandomOverSampler` & `RandomUnderSampler`
+					 `over_sampling`
+					 `under_sampling`
+			 Пробовать разные алгоритмы
+			 Попробовать модели со штрафами (Penalized Models)
+			 Посмотреть с другой точки зрения
+			 Проявить творческий подход
+	03 Missing Values (Обработка пропущенных значений)
+		 Подготовка окружения
+		 Загрузка данных
+		 Пропущенные значения в `pandas`
+		 Обнаружение пропущенных значений
+		 Источники пропущенных значений
+		 Подходы к устранению пропущенных значений
+		 Типы пропущенных значений
+			 Пропущен блок (**Unit** Nonresponse) / Пропущен элемент (**Item** Nonresponse)
+			 Как можно **избежать**?
+			 Как можно **игнорировать**?
+				 Удаление пропущенных значений
+					 Удалить ячейки с пропущенными значениями из `Series`
+					 Удалить КОЛОНКИ с пропущенными значениями из `DataFrame`
+					 Удалить СТРОКИ с пропущенными значениями из `DataFrame`
+			 Как можно дать **объяснение**?
+				 **Deductive Imputation**
+					 `pandas.Series.fillna`
+					 `pandas.Series.replace`
+					 `sklearn.impute.SimpleImputer`
+				 **Mean/Median/Mode Imputation**
+					 `pandas.Series.fillna`
+					 `pandas.Series.replace`
+					 *`pandas.Series.interpolate`
+					 `sklearn.impute.SimpleImputer`
+				 ***Hot-Deck Imputation**
+					 *`pandas.Series.ffill`
+				 **Regression Imputation / *Stochastic (=Random) Regression Imputation / *Multiple Stochastic Regression Imputation**
+				 ***Более сложные модели для предсказания**
+					 `sklearn.impute.KNNImputer`
+			 Missing not at random (MNAR) ~ Отсутствует не случайно
+			 Missing at random (MAR) ~ Отсутствует случайно
+			 Missing completely at random (MCAR) ~ Отсутствует полностью случайно
+			 *Как определить тип пропущенных значений?
+			 Типичный алгоритм действий
+	04 Feature Engineering (Конструирование признаков (Feature Engineering))
+		 Подготовка окружения
+		 Создание `DataFrame` для примера
+			 Анализ типов шкал
+		 Конструирование признаков (Feature Engineering)
+		 Строковые признаки
+			 Получить информацию из строки (на примере `pandas.Series.str.contains`)
+			 Группировка строковых признаков и формирование "групп" (Binning/Discretization) с помощью `replace` (`pandas`)
+			 Разделить строку на несколько признаков с помощью `apply` (`pandas`)
+			 Преобразовать к другому типу с помощью `map` (`pandas`)
+			 *Мешок слов (bag-of-words) на примере `CountVectorizer` (`sklearn`)
+		 Категориальные признаки
+			 Комбинации признаков с помощью bool mask filter
+			 Группировка категориальных признаков и формирование "интервалов" (Binning/Discretization)
+			 Пронумеровать признаки с помощью `map` (`pandas`)
+			 Пронумеровать признаки с помощью `replace` (`pandas`)
+			 `LabelEncoder` (`sklearn`)
+			 `OrdinalEncoder` (`sklearn`)
+			 `LabelBinarizer` (`sklearn`)
+			 `OneHotEncoder` (`sklearn`)
+			 Dummies (`pandas`)
+			 `CountEncoder` (`category_encoders`)
+		 Числовые признаки
+			 Округление вещественных чисел
+			 Объединение нескольких (агрегация) числовых признаков
+			 Приведение числового признака к категориальному и формирование "интервалов" (Binning/Discretization)
+				 Биннинг по расстоянию (Binning by distance) с помощью `cut` (`pandas`)
+				 Биннинг по частоте (Binning by frequency) с помощью `qcut` (`pandas`)
+				 Семплирование (Sampling)
+				 Вычислить естественные разрывы (natural breaks) в данных
+			 *`KBinsDiscretizer` (`sklearn`)
+		 Дата и время
+			 Сезоны из даты
+			 Выходной/рабочий день
+			 Время дня
+		 *Файлы (изображения, аудио, ...)
+		 Еще идеи
+			 Результаты других алгоритмов
+			 Агрегированные признаки
+			 Добавление новых признаков
+			 Рекомендации
+	05 Standardization Normalization (Нормализация и стандартизация (Normalization & standardization))
+		 Загрузка данных
+		 Выбор колонок для изучения
+		 Удаление выбросов
+		 Нормализация и Стандартизация
+		 Графическое представление
+		 Нормализация
+			 Минимаксная нормализация (`MinMaxScaler`)
+			 MaxAbsScaler
+			 Robust scaling
+			 Z-нормализация / z-score (`StandardScaler`)
+		 Стандартизация
+			 *Статистические тесты на нормальность
+				 Shapiro-Wilk Test
+				 D’Agostino’s K-squared test
+				 Chi-Square Normality Test
+				 Jarque–Bera test for Normality
+			 Log Transformation
+			 Square-Root Transformation
+			 Reciprocal Transformation
+			 `PowerTransformer` (Yeo-Johnson/Box-Cox с помощью )
+				 Box-Cox Transformation
+				 Yeo-Johnson Transformation
+			 Квантильный преобразователь (`QuantileTransformer`)
+	06 Df Merge
+12 Ml Basic
+
+	01 Learning Types (Типы машинного обучения (Machine learning types))
+	02 Metrics (Типы машинного обучения (Machine learning types))
+	03 Relative Vs Absolute Diff (Относительное и абсолютное изменение качества модели)
+		 Относительное изменение
+		 Абсолютное изменение
+	04 Overfit Underfit 2 (Переобучение (Overfitting) & Недообучение (Underfitting))
+		 Переобучение (overfitting) и Недообучение (underfitting)
+		 Кривые обучения
+			 Кривые обучения при переобучении
+			 Кривые обучения при недообучении
+		 High variance и high bias
+		 Дилемма bias-variance / Дилемма смещения–дисперсии / Bias–variance tradeoff
+		 Возможные решения при переобучении
+		 Возможные решения при недообучении
+	04 Overfit Underfit Train Test Cv (Переобучение (Overfitting) & Недообучение (Underfitting) & Train/Test/CV)
+		 Загрузка данных
+		 Overfitting (Переобучение) & Underfitting (Недообучение)
+			 Переобучение (Overfitting)
+			 Недообучение (Underfitting)
+		 Training / Test / Cross-validation
+		 Регуляризация (Regularization)
+			 L1 (Lasso) или регуляризация через манхеттенское расстояние
+			 L2 (Ridge) или регуляризация Тихонова
+			 Elastic Net
+	05 Baseline Model (Базовая модель (Baseline model))
+		 Обучение (Training) и  Вывод (Inference)
+		 Базовая модель (Baseline Model)
+	06 Multicollinearity (Мультиколлинеарность (Multicollinearity))
+		 Мультиколлинеарность (Multicollinearity)
+		 *Способы решения проблемы мультиколлинеарности
+	07 Interpretable Model (Интерпретируемость модели / Explainable artificial intelligence (XAI))
+		 Интерпретируемость
+		 В каких случаях интерпретируемость нужна?
+		 В каких случаях интерпретируемость НЕ нужна?
+		 Способы создания интерпретируемой модели
+		 *Классификация моделей
+	08 Pipeline Hyperparameter (Pipeline (Конвейер) & Hyper-parameters (Гиперпараметры))
+		 Загрузка данных
+		 `sklearn.pipeline.Pipeline`
+			 Preprocessor
+			 Estimator
+			 Использование модели
+			 Идеи
+		 Подбор гиперпараметров (hyper-parameters)
+	09 Gradient Descent (Градиентный спуск (Gradient descent))
+		 Локальный vs. Глобальный экстремум (минимум/максимум) / Local vs. Global extrema
+		 Градиент
+		 Выпуклая функция (выпуклая вниз функция) vs. Вогнутая функция (выпуклая вверх функция) / Convex function vs. Concave function
+		 Градиентный спуск
+	10 Learning Rate (Коэффициент скорости обучения (Learning rate/eta/alpha))
+		 Описание
+		 Выбор коэффициента скорости обучения
+	11 Loss Function (Функция потерь (Loss/Cost function))
+		 Описание
+		 Виды функций потерь
+		 Эмпирический риск (Empirical risk)
+		 Метод минимизации эмпирического риска (МЭР, Empirical risk minimization, ERM)
+	12 Feature Selection (Отбор признаков (Feature selection))
+		 Отбор признаков
+		 Удаление признаков с низкой дисперсией (Removing features with low variance)
+		 *Одномерный выбор признаков (Univariate feature selection)
+		 Рекурсивное устранение признаков (Recursive feature elimination)
+		 Выбор признаков с помощью SelectFromModel (Feature selection using SelectFromModel)
+			 *Выбор признаков на основе L1 (L1-based feature selection)
+			 Выбор признаков на основе дерева (Tree-based feature selection)
+		 Последовательный выбор признаков (Sequential Feature Selection)
+	13 Ensemble Learning (Ансамбль методов (Ensemble learning))
+		 Ensemble learning
+		 Bootstrap aggregating (Bagging/Бэггинг)
+		 Boosting
+		 Stacking
+		 Bagging vs. Boosting vs. Stacking
+		 Какие еще бывают ансамбли?
+	14 Incremental Learning (Пошаговое обучение (Incremental learning))
+		 Описание
+	15 Choosing Model
+	16 Lasso Ridge Elasticnet (Lasso / Ridge / ElasticNet Regression)
+		 Подготовка окружения
+		 Загрузка данных
+		 Разделение данных
+		 Lasso (least absolute shrinkage and selection operator/оператор наименьшей абсолютной усадки и выбора)
+			 Обучение модели (Train)
+			 Оценка качества модели (Evaluation)
+			 Визуализация (Visualization)
+		 Ridge
+			 Обучение модели (Train)
+			 Оценка качества модели (Evaluation)
+			 Визуализация (Visualization)
+		 ElasticNet
+			 Обучение модели (Train)
+			 Оценка качества модели (Evaluation)
+			 Визуализация (Visualization)
+13 Ml Regression
+
+	House Data Exploration (Исследование данных (Data exploration))
+		 Импорт пакетов
+		 Анализ данных
+			 Загрузка данных
+	House Modeling (Построение модели по данным о ценах на дома)
+		 Импорт пакетов
+		 Анализ данных
+			 Загрузка данных
+		 Простая линейная регрессия
+		 Полиномиальная регрессия (квадратичная) 2D
+		 Полиномиальная регрессия (кубическая) 2D
+		 Множественная линейная регрессия (2D)
+		 Множественная линейная регрессия (N-D)
+		 Полиномиальная регрессия (квадратичная) N-D
+		 Полиномиальная регрессия (4-я степень) N-D
+		 XGBoost for Regression
+	Housing Prices Competition ([Housing Prices Competition for Kaggle Learn Users](https://www.kaggle.com/c/home-data-for-ml-course))
+		 Install necessary packages
+		 Import necessary packages
+		 Read in data
+		 Exploratory Data Analysis
+			 Categorical & Numerical features
+				 Categorical
+				 Numerical
+			 Outliners
+			 Missing values
+		 Cleaning the data
+		 Modelling & Predicting
+		 Evaluating Results
+			 Most Important Features
+	Hpc V2 ([Housing Prices Competition for Kaggle Learn Users](https://www.kaggle.com/c/home-data-for-ml-course))
+		 Install necessary packages
+		 Import necessary packages
+		 Read in data
+		 Exploratory Data Analysis
+			 Missing values
+			 Data types
+				 object -> categorical
+	01 Info (Регрессия (Regression))
+	02 Evaluation (Метрики для оценки качества регрессионной модели)
+		 Средняя абсолютная ошибка (MAE – Mean Absolute Error / MAD – Mean Absolute Deviation)
+		 Средняя квадратическая ошибка (MSE – Mean Squared Error)
+		 Корень средней квадратичной ошибки (RMSE – Root Mean Squared Error / RMSD – Root Mean Square Deviation)
+		 Коэффициент детерминации ($R^2$ / R-squared)
+	03 Simple Linear (Простая линейная регрессия (Simple linear regression))
+		 Подготовка окружения
+		 Загрузка данных
+		 Простая линейная регрессия (Simple linear regression)
+		 Обучение модели (Train)
+		 Визуализация (Visualization)
+		 Оценка качества модели (Evaluation)
+	04 Multiple Linear (Множественная линейная регрессия (Multiple linear regression))
+		 Подготовка окружения
+		 Загрузка данных
+		 Множественная линейная регрессия (Multiple linear regression)
+		 Обучение модели (Train)
+		 Оценка качества модели (Evaluation)
+		 Визуализация (Visualization)
+		 Обучение модели (Train)
+		 Оценка качества модели (Evaluation)
+		 Визуализация (Visualization)
+	05 Poly Linear (Нелинейная регрессия (Non-linear regression) / Полиномиальная регрессия (Polynomial regression))
+		 Подготовка окружения
+		 Загрузка данных
+		 Полиномиальная регрессия (Polynomial regression)
+		 Примеры полиномиальных функций
+			 Линейная функция (Linear function)
+			 Квадратичная функция (Quadratic function)
+			 Кубическая функция (Cubic function)
+			 Экспоненциальная функция (Exponential function)
+			 Логарифмическая функция (Logarithmic function)
+			 Сигмоида / Логистическое уравнение (Sigmoid/Logistic function)
+		 Обучение модели (Train)
+		 Оценка качества модели (Evaluation)
+		 Визуализация (Visualization)
+		 Оценка качества модели (Evaluation)
+		 Визуализация (Visualization)
+	06 Example Eda (Исследовательский анализ данных (Exploratory data analysis = EDA))
+		 Подготовка окружения
+		 Загрузка данных
+		 Анализ данных и преобразование типов
+			 Анализ типов
+		 Анализ числовых признаков
+			 Анализ корреляций
+		 Анализ категориальных признаков
+		 Анализ отсутствующих значений
+	07 Example Manual (Построение модели на примере полиномиальной регрессии (polynomial regression))
+		 Подготовка окружения
+		 Загрузка данных
+		 Преобразование типов и очистка
+		 Удаление выбросов
+		 Нормализация
+		 Стандартизация
+		 Преобразование категориальных признаков в числа
+		 Удаление категориальных колонок
+		 Удаление мультиколлинеарности
+		 Разделение данных на `X` и `y`
+		 Полиномиальная линейная регрессия
+		 Cross-validation
+	08 Example Pipeline (Построение модели на примере полиномиальной регрессии (polynomial regression) с использованием `sklearn.pipeline`)
+		 Подготовка окружения
+		 Загрузка данных
+		 Преобразование типов и очистка
+		 Разделение данных на `X` и `y`
+		 Анализ и обработка выбросов
+		 Pipeline
+		 Cross-validation
+	09 Sgd (Stochastic Gradient Descent Linear Regression)
+		 Подготовка окружения
+		 Загрузка данных
+		 `SGDRegressor`
+		 Обучение модели (Train)
+		 Оценка качества модели (Evaluation)
+		 Визуализация (Visualization)
+	10 Random Forest Regressor (Random Forest Regressor)
+		 Подготовка окружения
+		 Загрузка данных
+		 Разделение данных на `X` и `y`
+		 Random Forest (Случайный лес) Regressor
+		 Анализ числовых признаков
+		 Анализ корреляций
+		 Анализ отсутствующих значений
+		 Важные параметры [sklearn.ensemble.RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)
+		 Обучение модели (Train) - manual
+		 Оценка качества модели (Evaluation)
+		 Важность признаков
+			 Важность признаков на основе среднего уменьшения примесей (mean decrease in impurity)
+			 Важность признаков на основе перестановки признаков (feature permutation)
+			 [SHAP](https://github.com/slundberg/shap)
+		 Feature Selection
+		 Обучение модели (Train) - pipeline
+		 Оценка качества модели (Evaluation)
+	11 Xgboost Regressor (XGBoost Regressor)
+		 Подготовка окружения
+		 Загрузка данных
+		 Разделение данных на `X` и `y`
+		 Описание
+			 Особенности модели
+			 Системные функции
+			 Рекомендации
+		 Feature Selection
+		 Обучение модели (Train) - pipeline
+			 Важные параметры `xgboost.XGBRegressor`
+			 Важные параметры `fit`
+		 Оценка качества модели (Evaluation)
+		 Важность признаков
+			 XGBoost [Plotting API](https://xgboost.readthedocs.io/en/latest/python/python_api.html	module-xgboost.plotting)
+			 [SHAP](https://github.com/slundberg/shap)
+		 *Параметры XGBRegressor для Python Scikit-Learn API
+			 `class xgboost.XGBRegressor(**kwargs)`
+			 `fit(X, y, *, sample_weight=None, base_margin=None, eval_set=None, eval_metric=None, early_stopping_rounds=None, verbose=True, xgb_model=None, sample_weight_eval_set=None, feature_weights=None, callbacks=None)`
+			 `predict(data, output_margin=False, ntree_limit=None, validate_features=True, base_margin=None)`
+	12 Lgbm Regressor
+	13 Catboost Regressor
+	14 Rf Xgb Lgbm
+	15 Svm Regressor
+	16 Decision Tree Regressor
+	17 Knns Regressor
+14 Ml Classification
+
+	Classification Heart Failure (Анализ и построение модели по данным о пациентах с сердечной недостаточностью)
+		 Импорт пакетов
+		 Анализ данных
+			 Загрузка данных
+	01 Info (Классификация (Classification))
+	02 Evaluation (Метрики для оценки качества классификационной модели)
+		 Матрица ошибок (Confusion matrix)
+		 Accuracy
+		 Точность (Precision)
+		 Полнота (recall) / Чувствительность (sensitivity) / Оценка верно положительных (true positive rate, TPR) / Вероятность выявления (probability of detection)
+		 F-мера (F-score/F1)
+		 Специфичность (Specificity)
+		 AUC-ROC / ROC-кривая / Кривая ошибок
+		 AUC-PR (Precision-Recall)
+		 *Логистическая функция потерь (logistic Loss / log loss / cross-entropy)
+		 *Коэффициент/Индекс Джини (Gini index/coefficient/ratio)
+		 Рекомендации
+	03 Knns Classifier (Метод k-ближайших соседей (K-Nearest neighbours, KNNs))
+		 Подготовка окружения
+		 Загрузка данных
+		 Метод k-ближайших соседей (k-nearest neighbours algorithm)
+			 Расстояния
+			 Достоинства
+			 Недостатки
+		 Предварительная обработка (pre-processing) и выбор (selection) данных
+		 Обучение модели (Train)
+		 Оценка качества модели (Evaluation)
+		 Обучение модели (Train)
+		 Оценка качества модели (Evaluation)
+		 Обучение модели (Train)
+	04 Logistic Regression (Логистическая регрессия (Logistic Regression))
+		 Подготовка окружения
+		 Загрузка данных
+		 Вероятность (Probability)
+			 Свойства
+			 Примеры (для независимых событий)
+			 Энтропия
+		 Различия между Линейной (Linear) и Логистической (Logistic) регрессией (Regression)
+		 Бинарная классификация (ровно 2 класса)
+			 Предварительная обработка (pre-processing) и выбор (selection) данных
+			 Обучение модели (Train)
+			 Оценка качества модели (Evaluation)
+		 Мультиклассовая классификация (> 2 классов) / Multinomial logistic regression
+			 Предварительная обработка (pre-processing) и выбор (selection) данных
+			 Обучение модели (Train)
+			 Оценка качества модели (Evaluation)
+	05 Svm Classifier (Метод опорных векторов (SVM, Support Vector Machines))
+		 Подготовка окружения
+		 Загрузка данных
+			 Предварительная обработка (pre-processing) и выбор (selection) данных
+		 SVM
+			 Ядра
+			 Достоинства
+			 Недостатки
+		 Обучение модели (Train)
+		 Оценка качества модели (Evaluation)
+	06 Decision Tree Classifier (Дерево решений (Decision Tree))
+		 Подготовка окружения
+		 Загрузка данных
+			 Предварительная обработка (pre-processing) и выбор (selection) данных
+		 Дерево решений (Decision Tree)
+			 Достоинства
+			 Недостатки
+		 Обучение модели (Train)
+		 Оценка качества модели (Evaluation)
+		 Важность признаков
+		 Визуализация (Visualization)
+	07 Example Pipeline (Построение модели на примере Decision tree)
+		 Подготовка окружения
+		 Загрузка данных
+		 Разделение данных на `X` и `y`
+		 Анализ и обработка пропущенных значений
+		 Преобразование типов и очистка
+		 Анализ баланса целевой переменной (`y`)
+		 Анализ и обработка выбросов
+		 Анализ корреляции
+		 Pipeline
+		 Обучение модели (эксперименты)
+		 Анализ результатов
+	09 Rf Classifier (Random Forest Classifier)
+	10 Xgb Classifier
+	11 Lgbm Classifier
+	12 Catboost Classifier
+	13 Naive Bayes (Наивный байесовский классификатор (Naive Bayes classifier))
+		 Подготовка окружения
+		 Загрузка данных
+			 Предварительная обработка (pre-processing) и выбор (selection) данных
+		 Теорема Байеса
+		 Наивный байесовский классификатор (Naive Bayes classifier)
+		 Оценка качества модели (Evaluation)
+	14 Boosting Models
+	15 Lda (Linear discriminant analysis (LDA) / Линейный дискриминантный анализ (ЛДА))
+		 Подготовка окружения
+		 Описание
+		 Customer Clustering
+			 Загрузка данных
+	16 Multilabel
+15 Ml Demensionality Reduction
+
+	01 Info (Снижение размерности (Dimensionality reduction))
+	02 Pca Tsne Umap (Principal component analysis (PCA) / Метод главных компонент (МГК))
+		 Подготовка окружения
+		 Описание PCA
+			 Примеры использования
+			 Scree plot
+		 Описание t-SNE
+		 Описание UMAP
+		 Рекомендации
+		 Customer Clustering
+			 Загрузка данных
+			 Анализ данных
+				 Типы данных
+				 Пропущенные значения
+				 Распределение данных
+			 Подготовка
+				 Масштабирование
+				 Полезные функции
+			 N-D PCA
+			 2-D PCA
+			 2-D t-SNE
+			 2-D UMAP
+			 3-D PCA
+			 3-D t-SNE
+			 3-D UMAP
+		 Credit Card Dataset for Clustering
+			 Загрузка данных
+			 Анализ данных
+				 Типы данных
+				 Пропущенные значения
+				 Распределение данных
+			 Подготовка
+				 Пропущенные значения
+				 Масштабирование
+			 N-D PCA
+			 2-D PCA
+			 2-D t-SNE
+			 2-D UMAP
+			 3-D PCA
+			 3-D t-SNE
+			 3-D UMAP
+		 Simple Clustering Data ID Gender Income Spending
+			 Загрузка данных
+			 Анализ данных
+				 Типы данных
+				 Пропущенные значения
+				 Распределение данных
+			 Подготовка
+				 Пропущенные значения
+				 Масштабирование
+				 Категориальные признаки
+			 N-D PCA
+			 2-D PCA
+			 2-D t-SNE
+			 2-D UMAP
+			 3-D PCA
+			 3-D t-SNE
+			 3-D UMAP
+		 Customer Segmentation
+			 Загрузка данных
+			 Анализ данных
+				 Типы данных
+				 Пропущенные значения
+				 Распределение данных
+			 Подготовка
+				 Пропущенные значения
+				 Масштабирование
+				 Категориальные признаки
+			 N-D PCA
+			 2-D PCA
+			 2-D t-SNE
+			 2-D UMAP
+			 3-D PCA
+			 3-D t-SNE
+			 3-D UMAP
+		 Weather Stations in USA
+			 Загрузка данных
+			 Анализ данных
+				 Типы данных
+				 Пропущенные значения
+				 Распределение данных
+			 Подготовка
+				 Пропущенные значения
+				 Масштабирование
+				 Категориальные признаки
+			 N-D PCA
+			 2-D PCA
+			 2-D t-SNE
+			 2-D UMAP
+			 3-D PCA
+			 3-D t-SNE
+			 3-D UMAP
+16 Ml Clustering
+
+	01 Info (Кластеризация (Clustering))
+	02 Evaluation (Метрики для оценки качества классификационной модели)
+		 Оценка силуэта (Silhouette Score)
+		 Индекс Калински-Харабаса (Calinski-Harabasz Index / Variance Ratio Criterion)
+		 *Индекс Рэнда (Rand Index)
+		 *Индекс Рэнда с поправкой на случайность (Rand index adjusted for chance)
+		 *Взаимная информация (Mutual Information)
+		 *Однородность, полнота и V-мера (Homogeneity, completeness and V-measure)
+	03 Kmeans (Метод k-средних (K-Means clustering))
+		 Подготовка окружения
+		 Описание
+			 Инерция (Inertia)
+			 Алгоритм
+			 Преимущества
+			 Недостатки
+			 Похожие алгоритмы
+		 Загрузка данных
+		 Анализ данных
+		 Подготовка данных
+		 Выбор `n_clusters`
+		 3-D PCA
+		 3-D UMAP
+		 Функция оценки силуэта
+		 Построение модели (4 кластера)
+		 Анализ результатов (4 кластера)
+			 Оценка силуэта (Silhouette Score)
+			 3-D PCA
+			 3-D UMAP
+			 Анализ "представителей" кластеров
+				 2-D: `Edu` / `Defaulted` / `Income`
+				 2-D: `Edu` / `Years Employed` / `Defaulted`
+				 3-D
+		 Построение модели (5 кластеров)
+		 Анализ результатов (5 кластеров)
+			 Оценка силуэта (Silhouette Score)
+			 3-D PCA
+			 3-D UMAP
+			 Анализ "представителей" кластеров
+				 2-D
+				 3-D
+	04 Dbscn (Density-based spatial clustering of applications with noise (DBSCAN) / Основанная на плотности пространственная кластеризация для приложений с шумами)
+		 Подготовка окружения
+		 Описание
+			 Рекомендации по выбору гиперпараметров `eps`  и `min_samples`
+			 Преимущества
+			 Недостатки
+		 Загрузка данных
+		 Анализ данных
+		 Подготовка данных
+		 Выбор `min_samples`
+		 Выбор `eps`
+		 3-D PCA
+		 3-D UMAP
+		 Функция оценки силуэта
+		 Построение модели
+		 Анализ результатов
+			 Colormap
+			 Оценка силуэта (Silhouette Score)
+			 Анализ "представителей" кластеров
+			 3-D PCA
+			 3-D UMAP
+			 2-D: `Edu` / `Years Employed` / `Defaulted`
+			 3-D
+	05 Hierarchical (Hierarchical Clustering)
+		 Подготовка окружения
+		 Описание
+			 Агломеративная кластеризация (Agglomerative clustering)
+			 Дендрограмма
+		 Загрузка данных
+		 Анализ данных
+		 Подготовка данных
+		 3-D PCA
+		 3-D UMAP
+		 Построение модели
+		 Анализ результатов
+			 Полная дендограмма
+			 Сокращенная дендограмма
+			 Анализ "представителей" кластеров
+			 3-D PCA
+			 3-D UMAP
+			 2-D: `Edu` / `Defaulted` / `Income`
+			 2-D: `Edu` / `Years Employed` / `Defaulted`
+			 3-D
+17 Dl Basic
+
+	01 Terminology
+	02 Loss Functions
+	03 Debugging (Обнаружение ошибок)
+18 Dl Nlp
+
+	 Sentiment Analysis
+	 Terminology
+19 Recommendation System
+
+	 Terminology
+20 Collaborative Learning
+
+	01 Terminology (Федеративное обучение (Federated learning))
+21 Experiment Design
+
+	01 Hypothesis Testing
+	02 Sampling
+	03 Significance Tests
+	04 Randomness
+	05 Probability
+	06 Confidence Intervals Twosample Inference
+22 Deployment
+
+	01 Api
+	02 Domino
+	02 Kedro
+23 Infrastructure
+
+	01 A B Testing
+	02 Docker Linux Terminal
+	03 Gpu Cuda
+24 Academic Research Papers
+
+	01 Math
+25 Interview
+
+	01 Cheat Sheet
+	02 Questions (Собеседование на должность Data Scientist)
+		 Общие рекомендации
+			 Общение с HR
+			 Как отвечать на вопрос "расскажите о себе"?
+			 Эмоции
+			 О чем лучше не говорить?
+			 О чем спросить у HR?
+			 О чем спросить на техническом собеседовании?
+		 Математика
+			
+			
+			
+			
+			
+		 Теория DS
+			 Что такое Data Science?
+			 В чем отличие DS, ML, DL?
+			 В чем сходства и отличия между обучением с учителем и обучением без учителя?
+			 Опишите этапы проекта в DS
+			 Что такое выбросы и как с ними обращаться?
+			 Расскажите Deep Learning?
+		 Classic ML
+			 Что такое линейная регрессия?
+			 Расскажите про алгоритм машинного обучения SVM.
+			
+			
+		 DL
+			
+			
+			
+			
+		 Вопросы-рассуждения
+			 Модель, построенная вашей командой, обеспечивает точность 90%. Что нужно знать, чтобы понять, хорошо это или нет?
+			
+			
+			
+			
+	03 Example Serg Eda
+	04 Example Zyfra Solution
+		 Импорт пакетов (Загрузка данных)
+		 Анализ
+		 Типы данных
+		 Пропущенные значения
+		 Дублирования
+		 Уникальные значения
+		 Баланс классов (Корреляция) (Эксперименты с моделью)
+		 1
+		 2
+		 3
+26 R Language
+
+	01 Info R (R language)
+		 Описание
+	02 01 Basic Py
