@@ -11,12 +11,10 @@ def get_filepaths():
 
 def prepare_inner_title(raw_json_part: dict):
     title = raw_json_part['source'][0].strip()
-    if len(title) > 1 and title[1] == '#':
-
-        return '\n' + title.replace('#', '\t')  # .replace(' ', '- ', 1)
-    else:
-        # return ' (**' + title.replace('#', '').strip() + '**)'
-        return f" ({title.replace('#', '').strip()})"
+    if len(title) > 3 and title[0:3] == '## ':
+        return '\n\t\t' + title.replace('#', '').replace(' ', '1. ', 1)
+    elif len(title) > 2 and title[0:2] == '# ':
+        return f" (**{title.replace('#', '').strip()}**)"
 
 
 def is_md_title(raw_json_part: dict):
@@ -26,7 +24,7 @@ def is_md_title(raw_json_part: dict):
 
 
 def parse_inner_level(string: str):
-    title = ('\n' if string[0:2] != '00' or string[0:2] != '01' else '') + '\t' + string.title()
+    title = f"\n\t1. {string.split(' ', 1)[1].capitalize()}"
     with open(filepath) as f:
         file_content = json.loads(f.read())
 
@@ -34,7 +32,7 @@ def parse_inner_level(string: str):
                           for x in file_content['cells']
                           if is_md_title(x)]
 
-    title += ''.join(markdown_cells)
+    title += ''.join([cell for cell in markdown_cells if cell is not None])
     return title
 
 
@@ -50,10 +48,10 @@ if __name__ == '__main__':
         dir_lvl_1 = filepath_prepared[0].split(' ', 1)[1].replace('_', ' ').title()
         if dir_lvl_1 not in dir_lvl_1_titles:
             dir_lvl_1_len = len(dir_lvl_1_titles)
-            toc += ('\n' if dir_lvl_1_len else '') + f"{dir_lvl_1_len:02d} {dir_lvl_1}\n"
+            toc += ('\n' if dir_lvl_1_len else '') + f"1. {dir_lvl_1}"
             dir_lvl_1_titles.add(dir_lvl_1)
         for inner_name in filepath_prepared[2:]:
             toc += parse_inner_level(string=inner_name)
 
-        with open('./TOC.txt', 'w') as toc_md:
+        with open('./TOC.md', 'w') as toc_md:
             toc_md.write(toc)
