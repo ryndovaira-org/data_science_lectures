@@ -86,7 +86,7 @@ parso@ file:///opt/conda/conda-bld/parso_1641458642106/work
 pexpect@ file:///tmp/build/80754af9/pexpect_1605563209008/work
 phik==0.12.2
 pickleshare@ file:///tmp/build/80754af9/pickleshare_1606932040724/work
-Pillow==9.2.0
+Pillow==9.3.0
 pip-review==1.2.0
 prometheus-client@ file:///tmp/abs_d3zeliano1/croots/recipe/prometheus_client_1659455100375/work
 prompt-toolkit==3.0.30
