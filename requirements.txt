@@ -15,7 +15,7 @@ certifi@ file:///opt/conda/conda-bld/certifi_1655968806487/work/certifi
 cffi@ file:///tmp/abs_98z5h56wf8/croots/recipe/cffi_1659598650955/work
 charset-normalizer==2.1.1
 constantly==15.1.0
-cryptography==37.0.4
+cryptography==39.0.1
 cssselect==1.1.0
 cycler==0.11.0
 debugpy==1.6.3
