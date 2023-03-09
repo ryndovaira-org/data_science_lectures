@@ -1,0 +1,21 @@
+.cta {
+  text-align: center;
+  padding: 3em 0;
+}
+
+.cta p strong {
+  color: #000000;
+  font-size: 24px;
+}
+
+.cta p + p {
+  margin-top: 1em;
+}
+
+.cta .button-transport {
+  font-size: 18px;
+  color: #ffffff;
+  background: #f00;
+  line-height: auto;
+  text-decoration: none;
+}

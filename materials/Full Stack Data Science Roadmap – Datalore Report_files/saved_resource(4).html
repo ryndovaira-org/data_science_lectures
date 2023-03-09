@@ -1,0 +1,27 @@
+
+<!-- saved from url=(0012)about:srcdoc -->
+<html sandbox="true" theme="idea"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+      <meta content="frame-src https://www.youtube.com https://view.datalore.jetbrains.com https://datalore.jetbrains.com data://* ;" http-equiv="Content-Security-Policy">
+      <link href="https://datalore.jetbrains.com/index.css?v=15779" id="datalore-style" rel="stylesheet">
+      <script>
+        document.documentElement.setAttribute("theme", "idea");
+        document.documentElement.setAttribute("sandbox", true);
+        function updateHeight() {
+          window.parent.postMessage({iframeToResize: 'O3qzpVNOh9iac2p5cbai5k', desiredHeight: document.documentElement.scrollHeight}, '*');
+        }
+        window.addEventListener('load', function() {
+          if(window.ResizeObserver) {
+            var ro = new ResizeObserver(updateHeight);
+            ro.observe(document.body);
+          } else {
+            setInterval(updateHeight, 1000);
+          }
+        });
+        window.addEventListener('resize', updateHeight); 
+      </script>
+      <!--<base href="https://datalore.jetbrains.com/view/notebook/hwYUBbcvMA5Cn8GstBjztV">--><base href=".">
+      </head>
+      <body class="sandbox-iframe" data-lets-plot-preferred-width="986">
+        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/uhxiXOTKzfs" width="560"></iframe>
+      
+    </body></html>

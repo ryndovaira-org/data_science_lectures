@@ -1,0 +1,228 @@
+
+<!-- saved from url=(0012)about:srcdoc -->
+<html sandbox="true" theme="idea"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+      <meta content="frame-src https://www.youtube.com https://view.datalore.jetbrains.com https://datalore.jetbrains.com data://* ;" http-equiv="Content-Security-Policy">
+      <link href="https://datalore.jetbrains.com/index.css?v=15779" id="datalore-style" rel="stylesheet">
+      <script>
+        document.documentElement.setAttribute("theme", "idea");
+        document.documentElement.setAttribute("sandbox", true);
+        function updateHeight() {
+          window.parent.postMessage({iframeToResize: '7X8nKGoWihYL1U2WvdOK60', desiredHeight: document.documentElement.scrollHeight}, '*');
+        }
+        window.addEventListener('load', function() {
+          if(window.ResizeObserver) {
+            var ro = new ResizeObserver(updateHeight);
+            ro.observe(document.body);
+          } else {
+            setInterval(updateHeight, 1000);
+          }
+        });
+        window.addEventListener('resize', updateHeight); 
+      </script>
+      <!--<base href="https://datalore.jetbrains.com/view/notebook/hwYUBbcvMA5Cn8GstBjztV">--><base href=".">
+      </head>
+      <body class="sandbox-iframe" data-lets-plot-preferred-width="986">
+        <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>work_year</th>
+      <th>experience_level</th>
+      <th>employment_type</th>
+      <th>job_title</th>
+      <th>salary</th>
+      <th>salary_currency</th>
+      <th>salary_in_usd</th>
+      <th>employee_residence</th>
+      <th>remote_ratio</th>
+      <th>company_location</th>
+      <th>company_size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2020</td>
+      <td>MI</td>
+      <td>FT</td>
+      <td>Data Scientist</td>
+      <td>70000.0</td>
+      <td>EUR</td>
+      <td>79833.0</td>
+      <td>DE</td>
+      <td>0.0</td>
+      <td>DE</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2020</td>
+      <td>SE</td>
+      <td>FT</td>
+      <td>Machine Learning Scientist</td>
+      <td>260000.0</td>
+      <td>USD</td>
+      <td>260000.0</td>
+      <td>JP</td>
+      <td>0.0</td>
+      <td>JP</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2020</td>
+      <td>SE</td>
+      <td>FT</td>
+      <td>Big Data Engineer</td>
+      <td>85000.0</td>
+      <td>GBP</td>
+      <td>109024.0</td>
+      <td>GB</td>
+      <td>50.0</td>
+      <td>GB</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>2020</td>
+      <td>MI</td>
+      <td>FT</td>
+      <td>Product Data Analyst</td>
+      <td>20000.0</td>
+      <td>USD</td>
+      <td>20000.0</td>
+      <td>HN</td>
+      <td>0.0</td>
+      <td>HN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>2020</td>
+      <td>SE</td>
+      <td>FT</td>
+      <td>Machine Learning Engineer</td>
+      <td>150000.0</td>
+      <td>USD</td>
+      <td>150000.0</td>
+      <td>US</td>
+      <td>50.0</td>
+      <td>US</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>602</th>
+      <td>602</td>
+      <td>2022</td>
+      <td>SE</td>
+      <td>FT</td>
+      <td>Data Engineer</td>
+      <td>154000.0</td>
+      <td>USD</td>
+      <td>154000.0</td>
+      <td>US</td>
+      <td>100.0</td>
+      <td>US</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>603</th>
+      <td>603</td>
+      <td>2022</td>
+      <td>SE</td>
+      <td>FT</td>
+      <td>Data Engineer</td>
+      <td>126000.0</td>
+      <td>USD</td>
+      <td>126000.0</td>
+      <td>US</td>
+      <td>100.0</td>
+      <td>US</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>604</th>
+      <td>604</td>
+      <td>2022</td>
+      <td>SE</td>
+      <td>FT</td>
+      <td>Data Analyst</td>
+      <td>129000.0</td>
+      <td>USD</td>
+      <td>129000.0</td>
+      <td>US</td>
+      <td>0.0</td>
+      <td>US</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>605</th>
+      <td>605</td>
+      <td>2022</td>
+      <td>SE</td>
+      <td>FT</td>
+      <td>Data Analyst</td>
+      <td>150000.0</td>
+      <td>USD</td>
+      <td>150000.0</td>
+      <td>US</td>
+      <td>100.0</td>
+      <td>US</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>606</th>
+      <td>606</td>
+      <td>2022</td>
+      <td>MI</td>
+      <td>FT</td>
+      <td>AI Scientist</td>
+      <td>200000.0</td>
+      <td>USD</td>
+      <td>200000.0</td>
+      <td>IN</td>
+      <td>100.0</td>
+      <td>US</td>
+      <td>L</td>
+    </tr>
+  </tbody>
+</table>
+<p>607 rows × 12 columns</p>
+</div>
+      
+    </body></html>
