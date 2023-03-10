@@ -9,45 +9,54 @@
 	1. Ai roles (**Роли в AI команде**)
 	1. Etl (**ETL**)
 1. Utils
-	1. Jupyter (**Источники**) (**Базовая информация об интерактивном блокноте Jupyter**)
-	1. Toc (**Jupyter Lab**)
-	1. Colab
-	1. Kaggle
+	1. Jupyter (**Базовая информация об интерактивном блокноте Jupyter**)
+	1. Toc (**Table of Contents (TOC)**)
+	1. Colab (**Google Colaboratory (Colab)**)
+	1. Kaggle (**Kaggle**)
 1. Python Basic
-	1. Operators
-	1. Control structures
-	1. Functions
-	1. Builtin data structures
-	1. Date time
-	1. Files
-	1. Oop
-	1. Exceptions
-	1. Logs
+	1. Python (**Python**)
+	1. Operators (**Operators**)
+	1. Control structures (**Control structures**)
+	1. Functions (**Functions**)
+	1. Builtin data structures (**Builtin data structures**)
+	1. Date time (**Date / Time**)
+	1. Files (**Files**)
+	1. With statement (**The `with` statement**)
+	1. Oop (**Object-oriented programming (OOP)**)
+	1. Exceptions (**Exceptions**)
+	1. Logging (**Logging**)
+	1. Virtural env
+	1. Argparse
+	1. Pytest
 1. Python Advanced
-	1. Oop
-	1. Decorators
-	1. Regex
-	1. Concurrent
-	1. Async
+	1. Collections (**Container datatypes**)
+	1. Oop (**Object-oriented programming (OOP)**)
+	1. Abc meta (**Abstract Base Classes**)
+	1. Regex (**Regular expression (RegEx)**)
+	1. Decorators (**Decorators**)
+	1. Concurrent computing (**Concurrent computing**)
+	1. Threading (**Thread-based parallelism**)
+	1. Multiprocessing (**Process-based parallelism**)
+	1. Asyncio
 1. Data Formats
-	1. Json
-	1. Xml
-	1. Toml
-	1. Csv
-	1. Pickle
-	1. Databases
+	1. Json (**JSON**)
+	1. Xml (**XML**)
+	1. Toml (**TOML**)
+	1. Csv (**CSV**)
+	1. Pickle (**Pickle**)
+	1. Databases (**Data bases**)
 	1. Vector matrix numpy (**Пакет `NumPy`: матрицы и операции над ними**)
 	1. Tabular pandas (**Пакет `pandas`: основная информация**)
 	1. Pandas time series (**Пакет `pandas`: анализ временных рядов**)
 	1. Numpy pandas types (**Пакеты `pandas` и `numpy`: типы данных**)
 1. Databases
-	1. Terminology
+	1. Terminology (**Terminology**)
 	1. Relational db (**Реляционные базы данных**)
 	1. Sql (**SQL**)
 	1. Mysql (**MySQL**)
 	1. Non relational db (**NoSQL**)
 	1. Mongodb (**MongoDB**)
-	1. New sql db
+	1. New sql db (**New SQL**)
 1. Web Scraping
 	1. Web scraping (**Веб-скрапинг (Web scraping)**)
 	1. Scripy (**Веб-скрапинг (Web scraping)**)
@@ -76,7 +85,8 @@
 	1. Missing values (**Обработка пропущенных значений**)
 	1. Feature engineering (**Конструирование признаков (Feature Engineering)**)
 	1. Standardization normalization (**Нормализация и стандартизация (Normalization & standardization)**)
-	1. Df merge
+	1. Pandas merge
+	1. Augmenting
 1. Ml Basic
 	1. Learning types (**Типы машинного обучения (Machine learning types)**)
 	1. Metrics (**Типы машинного обучения (Machine learning types)**)
@@ -212,6 +222,7 @@
 	1. Mlflow
 	1. Domino
 	1. Dask
+	1. Hydra
 1. Academic Research Papers
 	1. How to read
 	1. Math
@@ -223,3 +234,4 @@
 	1. Questions (**Собеседование на должность Data Scientist**)
 	1. Example serg eda
 	1. Example zyfra solution (**Загрузка данных**) (**Корреляция**) (**Эксперименты с моделью**)
+1. 
