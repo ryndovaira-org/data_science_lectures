@@ -14,7 +14,7 @@ def prepare_inner_title(raw_json_part: dict):
     # if len(title) > 3 and title[0:3] == '## ':
     #     return '\n\t\t' + title.replace('#', '').replace(' ', '1. ', 1)
     if len(title) > 2 and title[0:2] == '# ':
-        return f" (**{title.replace('#', '').strip()}**)"
+        return f"{title.replace('#', '').strip()}"
 
 
 def is_md_title(raw_json_part: dict):
@@ -26,7 +26,8 @@ def is_md_title(raw_json_part: dict):
 def parse_inner_level(string: str):
     file_titles = string.split(' ', 1)
     if len(file_titles) > 1:
-        title = f"\n\t1. {file_titles[1].capitalize()}"
+        title = f"\n\t1. "
+        # title = f"\n\t1. {file_titles[1].capitalize()}"
         with open(filepath) as f:
             file_content = json.loads(f.read())
 
