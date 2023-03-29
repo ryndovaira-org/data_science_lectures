@@ -1,15 +1,13 @@
-from abc import ABCMeta, abstractmethod
+from abc import abstractmethod
 from enum import Enum, auto
 from typing import Callable
 
-import numpy as np
-from scipy.interpolate import interp1d
-
-from imports import *
+from .imports import *
 
 
 class Figure:
     AROUND_DECIMALS = 2
+    LIM_OFFSET = 1
 
     class Type(Enum):
         ORIGINAL = auto()
@@ -58,7 +56,6 @@ class Figure:
         self.y = y
         self.obj_type = obj_type
 
-    @abstractmethod
     def draw(self):
         ...
 
@@ -72,6 +69,14 @@ class Point(Figure):
 
 
 class Interval(Figure):
+    @property
+    def min_y(self):
+        return min(self.y) - self.LIM_OFFSET
+
+    @property
+    def max_y(self):
+        return max(self.y) + self.LIM_OFFSET
+
     def draw(self):
         self.ax.plot(self.x,
                      self.y,
@@ -94,6 +99,7 @@ class Curve(Interval):
     @classmethod
     def get_curve_by_formula(cls,
                              ax: axes.Axes,
+                             obj_type: Figure.Type,
                              x_min: float,
                              x_max: float,
                              formula: Callable[[np.ndarray], np.ndarray]):
@@ -102,8 +108,17 @@ class Curve(Interval):
         return Curve(ax=ax,
                      x=x,
                      y=y,
-                     obj_type=Figure.Type.ORIGINAL,
+                     obj_type=obj_type,
                      formula=formula)
+
+    def draw(self):
+        super(Curve, self).draw()
+        ax_y_min, ax_y_max = self.ax.get_ylim()
+
+        if ax_y_min > self.min_y:
+            self.ax.set_ylim(self.min_y,
+                             ax_y_max)
+
 
     @property
     def rounded_x(self):
@@ -218,51 +233,75 @@ class Curve(Interval):
 
 
 class CurveAnalyser:
-    LIM_OFFSET = 1
+    FIGURE_HEIGHT = 6
+    FIGURE_WIDTH = 12
 
     CURVES = {
-        'sin(x)': dict(x_min=-np.pi,
-                       x_max=np.pi,
-                       formula=np.sin),
-        u'x\u00B3': dict(x_min=-4,
-                         x_max=4,
-                         formula=np.square),
-        u'x\u00B2': dict(x_min=-4,
-                         x_max=4,
-                         formula=lambda x: x * x * x)
+        'sin(x)': (dict(obj_type=Figure.Type.ORIGINAL,
+                        x_min=-np.pi,
+                        x_max=np.pi,
+                        formula=np.sin),
+                   dict(obj_type=Figure.Type.DERIVATIVE_1,
+                        x_min=-np.pi,
+                        x_max=np.pi,
+                        formula=np.cos),
+                   dict(obj_type=Figure.Type.DERIVATIVE_2,
+                        x_min=-np.pi,
+                        x_max=np.pi,
+                        formula=lambda x: -np.sin(x))
+                   ),
+        u'x\u00B3': (dict(obj_type=Figure.Type.ORIGINAL,
+                          x_min=-4,
+                          x_max=4,
+                          formula=np.square),
+                     dict(obj_type=Figure.Type.DERIVATIVE_1,
+                          x_min=-4,
+                          x_max=4,
+                          formula=lambda x: 2 * x),
+                     dict(obj_type=Figure.Type.DERIVATIVE_2,
+                          x_min=-4,
+                          x_max=4,
+                          formula=lambda x: 2 + 0 * x)
+                     ),
+        u'x\u00B2': (dict(obj_type=Figure.Type.ORIGINAL,
+                          x_min=-4,
+                          x_max=4,
+                          formula=lambda x: x * x * x),
+                     dict(obj_type=Figure.Type.DERIVATIVE_1,
+                          x_min=-4,
+                          x_max=4,
+                          formula=lambda x: 3 * x * x),
+                     dict(obj_type=Figure.Type.DERIVATIVE_2,
+                          x_min=-4,
+                          x_max=4,
+                          formula=lambda x: 6 * x))
     }
 
     def __init__(self):
         self.figures_to_draw: list[Figure] = []
-        fig, self.axs = plt.subplots(nrows=1,
-                                     ncols=len(self.CURVES),
-                                     sharex=True)
-        fig.suptitle('Curve sketching')
+        fig, self.axes = plt.subplots(nrows=len(self.CURVES),
+                                      ncols=1,
+                                      sharex=True,
+                                      figsize=(self.FIGURE_WIDTH, len(self.CURVES) * self.FIGURE_HEIGHT)
+                                      )
+        for i, (title, functions) in enumerate(self.CURVES.items()):
+            for params in functions:
+                self.axes[i].set_title(title)
+                self.axes[i].grid()
 
-        self.handles_all: list = []
-        self.labels_all: list = []
-
-        for i, (title, params) in enumerate(self.CURVES.items()):
-            self.axs[i].set_title(title)
-            self.axs[i].grid()
-
-            curve: Curve = Curve.get_curve_by_formula(ax=self.axs[i], **params)
-            self.figures_to_draw.append(curve)
-            self.figures_to_draw.extend(curve.curve_analysis())
+                curve: Curve = Curve.get_curve_by_formula(ax=self.axes[i], **params)
+                self.figures_to_draw.append(curve)
+                self.figures_to_draw.extend(curve.curve_analysis())
 
     def draw(self):
         for figure in self.figures_to_draw:
             figure.draw()
 
-        # ax.xlim(min(x) - lim_offset, max(x) + lim_offset)
-        # ax.ylim(min(y) - lim_offset, max(y) + lim_offset)
-        plt.axis('tight')
+        plt.tight_layout(h_pad=5, w_pad=2)
 
-        for ax in self.axs:
-            handles, labels = ax.get_legend_handles_labels()
-            self.handles_all.extend(handles)
-            self.labels_all.extend(labels)
-        plt.figlegend(self.handles_all, self.labels_all, loc='lower center', ncol=10, bbox_to_anchor=(0.5, -0.5))
+        for axes in self.axes:
+            axes.legend(ncol=3)
+
         plt.show()
 
 
