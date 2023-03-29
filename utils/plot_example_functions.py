@@ -20,6 +20,9 @@ class Figure:
         INTERVAL_UP = auto(),
         INTERVAL_DOWN = auto()
 
+        INTERVAL_ABOVE_0 = auto()
+        INTERVAL_BELOW_0 = auto(),
+
         COORDINATE_INTERVAL_X = auto()
         COORDINATE_INTERVAL_Y = auto()
 
@@ -29,13 +32,16 @@ class Figure:
         POINT_Y0 = auto()
 
     PARAMS = {
-        Type.ORIGINAL: dict(marker=',', c='#00E6B3', linewidth=3, alpha=0.5),
+        Type.ORIGINAL: dict(marker='.', c='#00E6B3', linewidth=3, alpha=0.5),
 
-        Type.DERIVATIVE_1: dict(marker=',', c='#43A2E6', linewidth=3),
-        Type.DERIVATIVE_2: dict(marker=',', c='#586F80', linewidth=3),
+        Type.DERIVATIVE_1: dict(marker='.', c='#43A2E6', linewidth=3),
+        Type.DERIVATIVE_2: dict(marker='.', c='#586F80', linewidth=3),
 
         Type.INTERVAL_UP: dict(marker='^', c='#B355E5', linewidth=1),
         Type.INTERVAL_DOWN: dict(marker='v', c='#E6456C', linewidth=1),
+
+        Type.INTERVAL_ABOVE_0: dict(marker=',', c='#E65D6F', linewidth=1),
+        Type.INTERVAL_BELOW_0: dict(marker=',', c='#187099', linewidth=1),
 
         Type.COORDINATE_INTERVAL_X: dict(marker=',', c='#FF6E30', linewidth=1),
         Type.COORDINATE_INTERVAL_Y: dict(marker=',', c='#FF6E30', linewidth=1),
@@ -43,7 +49,7 @@ class Figure:
         Type.POINT_MAX: dict(marker='*', c='#C0E62C', s=50),
         Type.POINT_MIN: dict(marker='*', c='#37E651', s=50),
 
-        Type.POINT_Y0: dict(marker='.', c='#FF3061', s=150)
+        Type.POINT_Y0: dict(marker='o', c='#E6DF47', s=150)
     }
 
     def __init__(self, ax: axes.Axes, x: float | np.ndarray, y: float | np.ndarray, obj_type: Type):
@@ -111,10 +117,7 @@ class Curve(Interval):
         figures = [self.get_d_y(),
                    self.get_e_y()]
         figures.extend(self.get_xs_where_y_eq_0())
-
-        # curve_up(x[0], x[2])
-        # curve_up(x[4], x[-1])
-        # curve_down(x[2], x[4])
+        figures.extend(self.get_y_below_above_0())
         return figures
 
     def get_max_min_point(self):
@@ -154,11 +157,50 @@ class Curve(Interval):
                                                       obj_type=Figure.Type.POINT_Y0)
                                                 for xi in self.rounded_x[np.where(self.rounded_y == 0)]])
 
-    def get_x_where_y_below_0(self):
-        ...
+    def get_y_below_above_0(self):
+        tmp_below_x: list[float] = []
+        tmp_below_y: list[float] = []
 
-    def get_x_where_y_above_0(self):
-        ...
+        tmp_above_x: list[float] = []
+        tmp_above_y: list[float] = []
+
+        intervals: list[Interval] = []
+
+        def save_interval_above():
+            if len(tmp_above_x) > 0:
+                intervals.append(Interval(ax=self.ax,
+                                          x=np.asarray(tmp_above_x),
+                                          y=np.asarray(tmp_above_y),
+                                          obj_type=Figure.Type.INTERVAL_ABOVE_0))
+                tmp_above_x.clear()
+                tmp_above_y.clear()
+
+        def save_interval_below():
+            if len(tmp_below_x) > 0:
+                intervals.append(Interval(ax=self.ax,
+                                          x=np.asarray(tmp_below_x),
+                                          y=np.asarray(tmp_below_y),
+                                          obj_type=Figure.Type.INTERVAL_BELOW_0))
+                tmp_below_x.clear()
+                tmp_below_y.clear()
+
+        for (x, y) in zip(self.x, self.y):
+            if y > 0:
+                save_interval_below()
+
+                tmp_above_x.append(x)
+                tmp_above_y.append(y)
+            elif y < 0:
+                save_interval_above()
+
+                tmp_below_x.append(x)
+                tmp_below_y.append(y)
+
+        save_interval_below()
+        save_interval_above()
+
+        return intervals
+
 
     # def analyse_curve(x, y, formula):
     #     x_y_equal_0 = x[np.where(y == 0)]
