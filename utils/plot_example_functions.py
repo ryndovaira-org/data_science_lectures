@@ -96,7 +96,7 @@ class Curve(Interval):
                              ax: axes.Axes,
                              x_min: float,
                              x_max: float,
-                             formula: Callable[[np.ndarray], np.ndarray]) -> Figure:
+                             formula: Callable[[np.ndarray], np.ndarray]):
         x = np.linspace(x_min, x_max, cls.LIN_SPACE_NUM)
         y = formula(x)
         return Curve(ax=ax,
@@ -246,7 +246,7 @@ class CurveAnalyser:
             self.axs[i].set_title(title)
             self.axs[i].grid()
 
-            curve = Curve.get_curve_by_formula(ax=self.axs[i], **params)
+            curve: Curve = Curve.get_curve_by_formula(ax=self.axs[i], **params)
             self.figures_to_draw.append(curve)
             self.figures_to_draw.extend(curve.curve_analysis())
 
