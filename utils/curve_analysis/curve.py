@@ -6,7 +6,7 @@ from utils.curve_analysis.figure import Figure
 from utils.curve_analysis.interval import Interval
 
 
-class Curve(Interval):
+class Curve(Interval, Points):
     LIN_SPACE_NUM = 1000
 
     def __init__(
@@ -29,16 +29,24 @@ class Curve(Interval):
         x_max: float,
         formula: Callable[[np.ndarray], np.ndarray],
     ):
-        x = np.linspace(x_min, x_max, cls.LIN_SPACE_NUM)
-        y = formula(x)
+
+        if obj_type == Figure.Type.CURVE_WITH_GAPS:
+            x = np.around(np.linspace(x_min, x_max, cls.LIN_SPACE_NUM), cls.AROUND_DECIMALS)
+            y = np.around(formula(x), cls.AROUND_DECIMALS)
+        else:
+            x = np.linspace(x_min, x_max, cls.LIN_SPACE_NUM)
+            y = formula(x)
         return Curve(ax=ax, x=x, y=y, obj_type=obj_type, formula=formula)
 
     def draw(self):
-        super(Curve, self).draw()
-        ax_y_min, ax_y_max = self.ax.get_ylim()
+        if self.obj_type == Figure.Type.CURVE_WITH_GAPS:
+            Points.draw(self)
+        else:
+            Interval.draw(self)
 
-        if ax_y_min > self.min_y:
-            self.ax.set_ylim(self.min_y, ax_y_max)
+            ax_y_min, ax_y_max = self.ax.get_ylim()
+            if ax_y_min > self.min_y:
+                self.ax.set_ylim(self.min_y, ax_y_max)
 
     @property
     def rounded_x(self):

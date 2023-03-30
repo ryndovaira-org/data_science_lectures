@@ -1,6 +1,8 @@
 from abc import abstractmethod
 from enum import Enum, auto
 
+import numpy as np
+
 from ..imports import *
 
 
@@ -9,7 +11,8 @@ class Figure:
     LIM_OFFSET = 2
 
     class Type(Enum):
-        ORIGINAL = auto()
+        CURVE = auto()
+        CURVE_WITH_GAPS = auto()
 
         DERIVATIVE_1 = auto()
         DERIVATIVE_2 = auto()
@@ -29,9 +32,14 @@ class Figure:
         POINT_Y0 = auto()
 
     PARAMS = {
-        Type.ORIGINAL: dict(
+        Type.CURVE: dict(
             label="original", marker=".", c="#00E6B3", linewidth=6, alpha=0.5, zorder=1
         ),
+
+        Type.CURVE_WITH_GAPS: dict(
+            label="y=0", marker="o", edgecolors="#069900", facecolors='none', alpha=1, s=100, zorder=1
+        ),
+
         Type.DERIVATIVE_1: dict(
             label="derivative 1",
             marker=".",
@@ -106,3 +114,11 @@ class Figure:
     @abstractmethod
     def draw(self):
         ...
+
+    @property
+    def x_round(self):
+        return np.around(self.x, self.AROUND_DECIMALS)
+
+    @property
+    def y_round(self):
+        return np.around(self.y, self.AROUND_DECIMALS)
