@@ -18,7 +18,7 @@ class A:
 
     @staticmethod  # decorator
     def do_static():
-        print('staticmethod')
+        print("staticmethod")
 
     @staticmethod
     def overload_init(b1, b2, b3):
@@ -61,10 +61,10 @@ print(inst2.__class__.cl_my1)
 
 A.do_class(1, 2)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("MAIN!!!")
 
-if __name__ == 'for_igor':
+if __name__ == "for_igor":
     print("I'm joking")
 
 inst3 = A.overload_init(1, 2, 3)
