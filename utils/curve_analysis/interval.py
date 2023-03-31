@@ -11,4 +11,6 @@ class Interval(Figure):
         return max(self.y) + self.LIM_OFFSET
 
     def draw(self):
-        self.ax.plot(self.x, self.y, **self.PARAMS.get(self.obj_type, dict()))
+        self.ax.plot(
+            self.x, self.y, label=self.label, **self.PARAMS.get(self.obj_type, dict())
+        )

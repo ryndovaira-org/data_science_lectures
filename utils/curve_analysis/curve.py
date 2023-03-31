@@ -12,42 +12,35 @@ class Curve(Interval, Points):
     def __init__(
         self,
         ax: axes.Axes,
-        x: float | np.ndarray,
-        y: float | np.ndarray,
+        label: str,
+        x: np.ndarray,
+        y: np.ndarray,
         obj_type: Figure.Type,
         formula: Callable[[np.ndarray], np.ndarray] = None,
     ):
-        super().__init__(ax, x, y, obj_type)
+        super().__init__(ax=ax, x=x, y=y, obj_type=obj_type, label=label)
         self.formula = formula
 
     @classmethod
     def get_curve_by_formula(
         cls,
         ax: axes.Axes,
+        label: str,
         obj_type: Figure.Type,
         x_min: float,
         x_max: float,
         formula: Callable[[np.ndarray], np.ndarray],
     ):
-        if obj_type == Figure.Type.CURVE_WITH_GAPS:
-            x = np.around(
-                np.linspace(x_min, x_max, cls.LIN_SPACE_NUM), cls.AROUND_DECIMALS
-            )
-            y = np.around(formula(x), cls.AROUND_DECIMALS)
-        else:
-            x = np.linspace(x_min, x_max, cls.LIN_SPACE_NUM)
-            y = formula(x)
-        return Curve(ax=ax, x=x, y=y, obj_type=obj_type, formula=formula)
+        x = np.linspace(start=x_min, stop=x_max, num=cls.LIN_SPACE_NUM)
+        y = formula(x)
+        return Curve(ax=ax, label=label, x=x, y=y, obj_type=obj_type, formula=formula)
 
     def draw(self):
-        if self.obj_type == Figure.Type.CURVE_WITH_GAPS:
-            Points.draw(self)
-        else:
-            Interval.draw(self)
+        Interval.draw(self)
 
-            ax_y_min, ax_y_max = self.ax.get_ylim()
-            if ax_y_min > self.min_y:
-                self.ax.set_ylim(self.min_y, ax_y_max)
+        ax_y_min, ax_y_max = self.ax.get_ylim()
+        if ax_y_min > self.min_y:
+            self.ax.set_ylim(self.min_y, ax_y_max)
 
     @property
     def rounded_x(self):
@@ -67,12 +60,10 @@ class Curve(Interval, Points):
         ]
         return figures
 
-    def get_max_min_point(self):
-        ...
-
     def get_d_y(self):
         return Interval(
             ax=self.ax,
+            label=self.label,
             x=self.x,
             y=np.full((len(self.x), 1), 0),
             obj_type=Figure.Type.COORDINATE_INTERVAL_X,
@@ -81,6 +72,7 @@ class Curve(Interval, Points):
     def get_e_y(self):
         return Interval(
             ax=self.ax,
+            label=self.label,
             x=np.full((len(self.x), 1), 0),
             y=self.y,
             obj_type=Figure.Type.COORDINATE_INTERVAL_Y,
@@ -102,6 +94,7 @@ class Curve(Interval, Points):
                 )
         return Points(
             ax=self.ax,
+            label=self.label,
             x=np.asarray(sorted_xs),
             y=np.full((1, len(sorted_xs)), 0),
             obj_type=Figure.Type.POINT_Y0,
@@ -116,6 +109,7 @@ class Curve(Interval, Points):
                 intervals.append(
                     Interval(
                         ax=self.ax,
+                        label=self.label,
                         x=np.asarray(tmp_xy[interval_type]),
                         y=np.full((len(tmp_xy[interval_type]), 1), 0),
                         obj_type=interval_type,
@@ -149,6 +143,7 @@ class Curve(Interval, Points):
                 intervals.append(
                     Interval(
                         ax=self.ax,
+                        label=self.label,
                         x=np.asarray(tmp_xy[interval_type]["x"]),
                         y=np.asarray(tmp_xy[interval_type]["y"]),
                         obj_type=interval_type,
