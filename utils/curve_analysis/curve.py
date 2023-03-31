@@ -29,9 +29,10 @@ class Curve(Interval, Points):
         x_max: float,
         formula: Callable[[np.ndarray], np.ndarray],
     ):
-
         if obj_type == Figure.Type.CURVE_WITH_GAPS:
-            x = np.around(np.linspace(x_min, x_max, cls.LIN_SPACE_NUM), cls.AROUND_DECIMALS)
+            x = np.around(
+                np.linspace(x_min, x_max, cls.LIN_SPACE_NUM), cls.AROUND_DECIMALS
+            )
             y = np.around(formula(x), cls.AROUND_DECIMALS)
         else:
             x = np.linspace(x_min, x_max, cls.LIN_SPACE_NUM)

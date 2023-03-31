@@ -35,11 +35,15 @@ class Figure:
         Type.CURVE: dict(
             label="original", marker=".", c="#00E6B3", linewidth=6, alpha=0.5, zorder=1
         ),
-
         Type.CURVE_WITH_GAPS: dict(
-            label="y=0", marker="o", edgecolors="#069900", facecolors='none', alpha=1, s=100, zorder=1
+            label="y=0",
+            marker="o",
+            edgecolors="#069900",
+            facecolors="none",
+            alpha=1,
+            s=100,
+            zorder=1,
         ),
-
         Type.DERIVATIVE_1: dict(
             label="derivative 1",
             marker=".",

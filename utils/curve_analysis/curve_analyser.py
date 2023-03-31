@@ -6,12 +6,20 @@ from utils.curve_analysis.figure import Figure
 
 
 class CurveAnalyser:
-    FIGURE_HEIGHT = 6
     FIGURE_WIDTH = 12
+    FIGURE_HEIGHT = 6
 
-    def __init__(self, curves: dict, analyse: bool = True):
+    def __init__(
+        self,
+        curves: dict,
+        analyse: bool = True,
+        figure_width: int = FIGURE_WIDTH,
+        figure_height: int = FIGURE_HEIGHT,
+    ):
         self.curves_to_analyse = curves
         self.analyse = analyse
+        self.figure_width = figure_width
+        self.figure_height = figure_height
         self.figures_to_draw = None
         self.axes = None
         self.prepare_figures()
@@ -24,8 +32,8 @@ class CurveAnalyser:
             ncols=1,
             sharex=True,
             figsize=(
-                self.FIGURE_WIDTH,
-                len(self.curves_to_analyse) * self.FIGURE_HEIGHT,
+                self.figure_width,
+                len(self.curves_to_analyse) * self.figure_height,
             ),
         )
         if type(self.axes) != np.ndarray:
