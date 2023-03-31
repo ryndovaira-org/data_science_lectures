@@ -1,5 +1,6 @@
 from utils.curve_analysis.curve import Curve
-from utils.curve_analysis.figure import Figure
+from utils.curve_analysis.plot import Plot
+from utils.curve_analysis.points import Points
 from utils.imports import *
 
 
@@ -25,7 +26,7 @@ class CurveAnalyser:
         self.draw()
 
     def prepare_figures(self):
-        self.figures_to_draw: list[Figure] = []
+        self.figures_to_draw: list[Plot] = []
         fig, self.axes = plt.subplots(
             nrows=len(self.curves_to_draw),
             ncols=1,
@@ -39,8 +40,12 @@ class CurveAnalyser:
             self.axes = [self.axes]
         for i, (title, functions) in enumerate(self.curves_to_draw.items()):
             self.axes[i].set_title(title)
+            main_figure = None
             for params in functions:
-                main_figure = Curve.get_curve_by_formula(ax=self.axes[i], **params)
+                if isinstance(params['obj_type'], Points.Type):
+                    main_figure = Points.by_formula(ax=self.axes[i], **params)
+                elif isinstance(params['obj_type'], Curve.Type):
+                    main_figure = Curve.by_formula(ax=self.axes[i], **params)
                 self.figures_to_draw.append(main_figure)
                 if self.analyse:
                     self.figures_to_draw.extend(main_figure.curve_analysis())
@@ -65,18 +70,25 @@ if __name__ == "__main__":
     curves = {
         r"$\frac{1}{x}$": (
             dict(
-                obj_type=Figure.Type.CURVE,
+                obj_type=Curve.Type.MAIN,
                 label=r"$\frac{1}{x}$",
                 x_min=-4,
                 x_max=0,
                 formula=lambda x: 1 / x,
             ),
             dict(
-                obj_type=Figure.Type.CURVE,
+                obj_type=Curve.Type.MAIN,
                 label=r"$\frac{1}{x}$",
                 x_min=0,
                 x_max=4,
                 formula=lambda x: 1 / x,
+            ),
+            dict(
+                obj_type=Points.Type.EMPTY,
+                label=r"$circle$",
+                x_min=1,
+                x_max=1,
+                formula=lambda x: x + 99,
             ),
         )
     }
