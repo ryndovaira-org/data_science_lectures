@@ -43,8 +43,8 @@ class Points(Plot):
         Type.EMPTY: dict(
             # label="y=0",
             marker="o",
-            facecolors='none',
-            edgecolors='#AE351C',
+            facecolors="none",
+            edgecolors="#00E6B3",
             alpha=0.8,
             s=100,
             zorder=2,
@@ -52,7 +52,7 @@ class Points(Plot):
         Type.FULL: dict(
             # label="y=0",
             marker="o",
-            c="#AE351C",
+            c="#00E6B3",
             alpha=0.8,
             s=100,
             zorder=2,
@@ -66,7 +66,7 @@ class Points(Plot):
         y: np.ndarray,
         label: str,
         obj_type: Type,
-        formula: Callable[[np.ndarray], np.ndarray],
+        formula: Callable[[np.ndarray], np.ndarray] = None,
     ):
         super().__init__(ax, x, y, label, formula)
         self.obj_type = obj_type

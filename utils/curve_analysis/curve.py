@@ -106,21 +106,10 @@ class Curve(Plot):
         super().__init__(ax, x, y, label, formula)
         self.obj_type = obj_type
 
-    @property
-    def min_y(self):
-        return min(self.y) - self.LIM_OFFSET
-
-    @property
-    def max_y(self):
-        return max(self.y) + self.LIM_OFFSET
-
     def draw(self):
         self.ax.plot(
             self.x, self.y, label=self.label, **self.PARAMS.get(self.obj_type, dict())
         )
-        ax_y_min, ax_y_max = self.ax.get_ylim()
-        if ax_y_min > self.min_y:
-            self.ax.set_ylim(self.min_y, ax_y_max)
 
     @classmethod
     def by_formula(

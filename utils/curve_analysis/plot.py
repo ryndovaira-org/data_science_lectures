@@ -6,7 +6,6 @@ from utils.imports import *
 
 class Plot:
     AROUND_DECIMALS = 2
-    LIM_OFFSET = 2
     LIN_SPACE_NUM = 1000
 
     def __init__(

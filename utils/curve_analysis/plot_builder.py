@@ -4,9 +4,11 @@ from utils.curve_analysis.points import Points
 from utils.imports import *
 
 
-class CurveAnalyser:
+class PlotBuilder:
     FIGURE_WIDTH = 12
     FIGURE_HEIGHT = 6
+    LIM_OFFSET_BOTTOM = 2
+    LIM_OFFSET_UPPER = 0.5
 
     def __init__(
         self,
@@ -42,9 +44,9 @@ class CurveAnalyser:
             self.axes[i].set_title(title)
             main_figure = None
             for params in functions:
-                if isinstance(params['obj_type'], Points.Type):
+                if isinstance(params["obj_type"], Points.Type):
                     main_figure = Points.by_formula(ax=self.axes[i], **params)
-                elif isinstance(params['obj_type'], Curve.Type):
+                elif isinstance(params["obj_type"], Curve.Type):
                     main_figure = Curve.by_formula(ax=self.axes[i], **params)
                 self.figures_to_draw.append(main_figure)
                 if self.analyse:
@@ -54,42 +56,82 @@ class CurveAnalyser:
         for figure in self.figures_to_draw:
             figure.draw()
 
-        plt.tight_layout(h_pad=5, w_pad=2)
         for ax in self.axes:
+            ax_y_min, ax_y_max = ax.get_ylim()
+            ax.set_ylim(
+                ax_y_min - self.LIM_OFFSET_BOTTOM, ax_y_max + self.LIM_OFFSET_UPPER
+            )
+
             handlers, labels = ax.get_legend_handles_labels()
-            ax.legend(handles=set(handlers), labels=set(labels), ncol=len(handlers))
+            ax.legend(
+                # TODO: handlers mixed wrong way!
+                handles=set(handlers),
+                labels=set(labels),
+                ncol=len(handlers),
+                loc="lower right",
+                fontsize="18",
+            )
+
             ax.grid(visible=True, color="#757575", which="major", linestyle="-")
             ax.grid(visible=True, color="#BDBDBD", which="minor", linestyle="--")
             ax.yaxis.set_minor_locator(tck.AutoMinorLocator())
             ax.xaxis.set_minor_locator(tck.AutoMinorLocator())
 
+        plt.tight_layout(h_pad=5, w_pad=2)
         plt.show()
 
 
 if __name__ == "__main__":
+    # curves = {
+    #     r"$\frac{1}{x}$": (
+    #         dict(
+    #             obj_type=Curve.Type.MAIN,
+    #             label=r"$\frac{1}{x}$",
+    #             x_min=-4,
+    #             x_max=0,
+    #             formula=lambda x: 1 / x,
+    #         ),
+    #         dict(
+    #             obj_type=Curve.Type.MAIN,
+    #             label=r"$\frac{1}{x}$",
+    #             x_min=0,
+    #             x_max=4,
+    #             formula=lambda x: 1 / x,
+    #         ),
+    #         dict(
+    #             obj_type=Points.Type.EMPTY,
+    #             label=r"$circle$",
+    #             x_min=1,
+    #             x_max=1,
+    #             formula=lambda x: x + 99,
+    #         ),
+    #     )
+    # }
+    # CurveAnalyser(curves, False, 6, 4)
+
     curves = {
-        r"$\frac{1}{x}$": (
+        "sign(x)": (
             dict(
                 obj_type=Curve.Type.MAIN,
-                label=r"$\frac{1}{x}$",
                 x_min=-4,
-                x_max=0,
-                formula=lambda x: 1 / x,
+                x_max=-0.1,
+                formula=np.sign,
+                label="$sign(x)$",
             ),
             dict(
                 obj_type=Curve.Type.MAIN,
-                label=r"$\frac{1}{x}$",
-                x_min=0,
+                x_min=0.1,
                 x_max=4,
-                formula=lambda x: 1 / x,
+                formula=np.sign,
+                label="$sign(x)$",
             ),
             dict(
-                obj_type=Points.Type.EMPTY,
-                label=r"$circle$",
-                x_min=1,
-                x_max=1,
-                formula=lambda x: x + 99,
+                obj_type=Points.Type.FULL,
+                x_min=0,
+                x_max=0,
+                formula=np.sign,
+                label="$sign(x)$",
             ),
         )
     }
-    CurveAnalyser(curves, False, 6, 4)
+    PlotBuilder(curves, False, 6, 4)
