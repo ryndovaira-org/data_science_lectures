@@ -1,3 +1,5 @@
+import numpy as np
+
 from utils.imports import *
 
 from utils.curve_analysis.curve import Curve
@@ -28,13 +30,13 @@ def discontinuous_functions():
                 obj_type=Curve.Type.MAIN,
                 label=r"$x^2$",
                 x_min=-2,
-                x_max=0.95,
+                x_max=0.9,
                 formula=lambda x: x * x,
             ),
             dict(
                 obj_type=Curve.Type.MAIN,
-                label=r"$x^2 + 2$",
-                x_min=1.05,
+                label=r"$x^2 + 1$",
+                x_min=1.1,
                 x_max=2,
                 formula=lambda x: x * x + 1,
             ),
@@ -51,6 +53,45 @@ def discontinuous_functions():
                 x_min=1,
                 x_max=1,
                 formula=lambda x: 0 * x + 2,
+            ),
+        ),
+        r"removable": (
+            dict(
+                obj_type=Curve.Type.MAIN,
+                label=r"$x^2 + 1$",
+                x_min=-2,
+                x_max=0.9,
+                formula=lambda x: x * x + 1,
+            ),
+            dict(
+                obj_type=Curve.Type.MAIN,
+                label=r"$x^2 + 1$",
+                x_min=1.1,
+                x_max=2,
+                formula=lambda x: x * x + 1,
+            ),
+            dict(
+                obj_type=Points.Type.EMPTY,
+                label=r"$singularity$",
+                x_min=1,
+                x_max=1,
+                formula=lambda x: 0 * x + 2,
+            ),
+        ),
+        r"endpoint": (
+            dict(
+                obj_type=Curve.Type.MAIN,
+                label=r"$\sqrt{x}$",
+                x_min=0,
+                x_max=4,
+                formula=np.sqrt,
+            ),
+            dict(
+                obj_type=Points.Type.FULL,
+                label=r"$singularity$",
+                x_min=0,
+                x_max=0,
+                formula=lambda x: 0 * x,
             ),
         ),
     }
