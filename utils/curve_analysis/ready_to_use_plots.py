@@ -163,3 +163,4 @@ def example_functions_to_analyse():
 
 
 if __name__ == '__main__':
+    ...
