@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 from utils.curve_analysis.curve import Curve
 from utils.curve_analysis.plot import Plot
 from utils.curve_analysis.points import Points
@@ -9,6 +11,9 @@ class PlotBuilder:
     FIGURE_HEIGHT = 6
     LIM_OFFSET_BOTTOM = 2
     LIM_OFFSET_UPPER = 0.5
+    FONT_SIZE = 18
+    LEGEND_LOCATION = "lower right"
+    LEGEND_NUM_COL = 3
 
     def __init__(
         self,
@@ -41,7 +46,7 @@ class PlotBuilder:
         if type(self.axes) != np.ndarray:
             self.axes = [self.axes]
         for i, (title, functions) in enumerate(self.curves_to_draw.items()):
-            self.axes[i].set_title(title)
+            self.axes[i].set_title(label=title, fontsize=self.FONT_SIZE)
             main_figure = None
             for params in functions:
                 if isinstance(params["obj_type"], Points.Type):
@@ -58,18 +63,18 @@ class PlotBuilder:
 
         for ax in self.axes:
             ax_y_min, ax_y_max = ax.get_ylim()
-            ax.set_ylim(
-                ax_y_min - self.LIM_OFFSET_BOTTOM, ax_y_max + self.LIM_OFFSET_UPPER
-            )
+            max_min_delta = ax_y_max - ax_y_min
+            ax.set_ylim(ax_y_min - max_min_delta / 1.5, ax_y_max + max_min_delta / 10)
 
-            handlers, labels = ax.get_legend_handles_labels()
+            handles, labels = ax.get_legend_handles_labels()
+            unique_labels_with_handlers = dict(sorted(dict(zip(labels, handles)).items()))
             ax.legend(
-                # TODO: handlers mixed wrong way!
-                handles=set(handlers),
-                labels=set(labels),
-                ncol=len(handlers),
-                loc="lower right",
-                fontsize="18",
+                handles=unique_labels_with_handlers.values(),
+                labels=unique_labels_with_handlers.keys(),
+                ncol=self.LEGEND_NUM_COL,
+                loc=self.LEGEND_LOCATION,
+                fontsize=self.FONT_SIZE,
+                numpoints=1,
             )
 
             ax.grid(visible=True, color="#757575", which="major", linestyle="-")
@@ -77,5 +82,5 @@ class PlotBuilder:
             ax.yaxis.set_minor_locator(tck.AutoMinorLocator())
             ax.xaxis.set_minor_locator(tck.AutoMinorLocator())
 
-        plt.tight_layout(h_pad=5, w_pad=2)
+        plt.tight_layout(h_pad=2, w_pad=2)
         plt.show()

@@ -132,22 +132,22 @@ def example_functions_to_analyse():
         "sin(x)": (
             dict(
                 obj_type=Curve.Type.MAIN,
-                x_min=-np.pi,
-                x_max=np.pi,
+                x_min=-1.5 * np.pi,
+                x_max=1.5 * np.pi,
                 formula=np.sin,
                 label=r"$sin(x)$",
             ),
             dict(
                 obj_type=Curve.Type.DERIVATIVE_1,
-                x_min=-np.pi,
-                x_max=np.pi,
+                x_min=-1.5 * np.pi,
+                x_max=1.5 * np.pi,
                 formula=np.cos,
                 label=r"$sin'(x) = cos(x)$",
             ),
             dict(
                 obj_type=Curve.Type.DERIVATIVE_2,
-                x_min=-np.pi,
-                x_max=np.pi,
+                x_min=-1.5 * np.pi,
+                x_max=1.5 * np.pi,
                 formula=lambda x: -np.sin(x),
                 label=r"$sin''(x) = -sin(x)$",
             ),
@@ -200,8 +200,8 @@ def example_functions_to_analyse():
         ),
     }
 
-    PlotBuilder(curves_to_analyse)
+    PlotBuilder(curves_to_analyse, True, 12, 9)
 
 
-if __name__ == '__main__':
-    ...
+if __name__ == "__main__":
+    example_functions_to_analyse()

@@ -8,4 +8,5 @@ from matplotlib import axes
 import matplotlib.ticker as tck
 
 import warnings
-warnings.filterwarnings('ignore')
+
+warnings.filterwarnings("ignore")
