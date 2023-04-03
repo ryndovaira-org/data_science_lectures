@@ -67,7 +67,9 @@ class PlotBuilder:
             ax.set_ylim(ax_y_min - max_min_delta / 1.5, ax_y_max + max_min_delta / 10)
 
             handles, labels = ax.get_legend_handles_labels()
-            unique_labels_with_handlers = dict(sorted(dict(zip(labels, handles)).items()))
+            unique_labels_with_handlers = dict(
+                sorted(dict(zip(labels, handles)).items())
+            )
             ax.legend(
                 handles=unique_labels_with_handlers.values(),
                 labels=unique_labels_with_handlers.keys(),
