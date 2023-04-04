@@ -10,9 +10,9 @@ from utils.curve_analysis.points import Points
 
 class Curve(Plot):
     class Type(Enum):
-        MAIN = auto()
-        DERIVATIVE_1 = auto()
-        DERIVATIVE_2 = auto()
+        MAIN_0 = auto()
+        MAIN_1 = auto()
+        MAIN_2 = auto()
         UP = auto()
         DOWN = auto()
         ABOVE_0 = auto()
@@ -21,21 +21,21 @@ class Curve(Plot):
         COORDINATE_Y = auto()
 
     PARAMS = {
-        Type.MAIN: dict(
+        Type.MAIN_0: dict(
             marker=",",
             c="#00E6B3",
             linewidth=10,
             alpha=0.7,
             zorder=1,
         ),
-        Type.DERIVATIVE_1: dict(
+        Type.MAIN_1: dict(
             marker=".",
             c="#43A2E6",
             linewidth=10,
             alpha=0.7,
             zorder=1,
         ),
-        Type.DERIVATIVE_2: dict(
+        Type.MAIN_2: dict(
             marker=".",
             c="#586F80",
             linewidth=10,
