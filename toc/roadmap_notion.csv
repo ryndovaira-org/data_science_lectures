@@ -298,8 +298,8 @@ classification_heart_failure, 02_modeling/04_models/03_supervised_learning/03_cl
 02_classical_interview, 03_deployment/02_software_engineering/08_algorithms/05_optimization, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/02_software_engineering/08_algorithms/05_optimization/02_classical_interview
 01_classical, 03_deployment/02_software_engineering/08_algorithms/06_combinatorial, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/02_software_engineering/08_algorithms/06_combinatorial/01_classical
 02_classical_interview, 03_deployment/02_software_engineering/08_algorithms/06_combinatorial, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/02_software_engineering/08_algorithms/06_combinatorial/02_classical_interview
-01_useful_hotkeys, 03_deployment/02_software_engineering/09_pycharm, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/02_software_engineering/09_pycharm/01_useful_hotkeys
-02_tips, 03_deployment/02_software_engineering/09_pycharm, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/02_software_engineering/09_pycharm/02_tips
+01_useful_hotkeys, 03_deployment/02_software_engineering/05_pycharm, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/02_software_engineering/09_pycharm/01_useful_hotkeys
+02_tips, 03_deployment/02_software_engineering/05_pycharm, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/02_software_engineering/09_pycharm/02_tips
 01_aws, 03_deployment/03_as_a_service, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/03_as_a_service/01_aws
 02_gcp, 03_deployment/03_as_a_service, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/03_as_a_service/02_gcp
 03_azure, 03_deployment/03_as_a_service, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/03_as_a_service/03_azure
