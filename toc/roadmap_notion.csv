@@ -1,6 +1,6 @@
 Title, Group, GitHub
-00_roadmap, 00_introduction/00_roadmap, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/00_roadmap/00_roadmap
-01_environment_preparation, 00_introduction/00_roadmap, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/00_roadmap/01_environment_preparation
+01_basics, 00_introduction/01_basics, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/00_roadmap/00_roadmap
+01_environment_preparation, 00_introduction/01_basics, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/00_roadmap/01_environment_preparation
 01_jupyter, 00_introduction/01_utils, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/01_utils/01_jupyter
 02_kaggle, 00_introduction/01_utils, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/01_utils/02_kaggle
 03_colab, 00_introduction/01_utils, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/01_utils/03_colab
@@ -11,7 +11,7 @@ Title, Group, GitHub
 05_programming_paradigms, 00_introduction/02_development_process, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/02_development_process/05_programming_paradigms
 06_development_methodologies, 00_introduction/02_development_process, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/02_development_process/06_development_methodologies
 07_development_process, 00_introduction/02_development_process, https://github.com/ryndovaira-org/data_science_notes/tree/main/00_introduction/02_development_process/07_development_process
-00_roadmap, 01_data_engineering/00_roadmap, https://github.com/ryndovaira-org/data_science_notes/tree/main/01_data_engineering/00_roadmap/00_roadmap
+01_basics, 01_data_engineering/01_basics, https://github.com/ryndovaira-org/data_science_notes/tree/main/01_data_engineering/00_roadmap/00_roadmap
 01_json, 01_data_engineering/02_data_requirements/01_data_formats, https://github.com/ryndovaira-org/data_science_notes/tree/main/01_data_engineering/01_data_requirements/01_data_formats/01_json
 02_xml, 01_data_engineering/02_data_requirements/01_data_formats, https://github.com/ryndovaira-org/data_science_notes/tree/main/01_data_engineering/01_data_requirements/01_data_formats/02_xml
 03_toml, 01_data_engineering/02_data_requirements/01_data_formats, https://github.com/ryndovaira-org/data_science_notes/tree/main/01_data_engineering/01_data_requirements/01_data_formats/03_toml
@@ -69,7 +69,7 @@ Title, Group, GitHub
 05_non_relational_db, 01_data_engineering/03_databases, https://github.com/ryndovaira-org/data_science_notes/tree/main/01_data_engineering/05_querying_data/05_non_relational_db
 06_mongodb, 01_data_engineering/03_databases, https://github.com/ryndovaira-org/data_science_notes/tree/main/01_data_engineering/05_querying_data/06_mongodb
 07_new_sql_db, 01_data_engineering/03_databases, https://github.com/ryndovaira-org/data_science_notes/tree/main/01_data_engineering/05_querying_data/07_new_sql_db
-00_roadmap, 02_modeling/00_roadmap, https://github.com/ryndovaira-org/data_science_notes/tree/main/02_modeling/00_roadmap/00_roadmap
+01_basics, 02_modeling/01_basics, https://github.com/ryndovaira-org/data_science_notes/tree/main/02_modeling/00_roadmap/00_roadmap
 01_linear_algebra, 02_modeling/01_math, https://github.com/ryndovaira-org/data_science_notes/tree/main/02_modeling/01_math/01_linear_algebra
 02_manifold_tensor, 02_modeling/01_math, https://github.com/ryndovaira-org/data_science_notes/tree/main/02_modeling/01_math/02_manifold_tensor
 03_calculus, 02_modeling/01_math, https://github.com/ryndovaira-org/data_science_notes/tree/main/02_modeling/01_math/03_calculus
@@ -200,7 +200,7 @@ classification_heart_failure, 02_modeling/04_models/03_supervised_learning/03_cl
 01_computer_vision, 02_modeling/04_models/_computer_vision, https://github.com/ryndovaira-org/data_science_notes/tree/main/02_modeling/04_models/_computer_vision/01_computer_vision
 2_simple_model, 02_modeling/04_models/_computer_vision, https://github.com/ryndovaira-org/data_science_notes/tree/main/02_modeling/04_models/_computer_vision/2_simple_model
 01_auto_ml, 02_modeling/05_automl, https://github.com/ryndovaira-org/data_science_notes/tree/main/02_modeling/05_automl/01_auto_ml
-00_roadmap, 03_deployment/00_roadmap, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/00_roadmap/00_roadmap
+01_basics, 03_deployment/01_basics, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/00_roadmap/00_roadmap
 01_os_comparison, 03_deployment/01_operating_system/01_general, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/01_operating_system/01_general/01_os_comparison
 02_distributed_os, 03_deployment/01_operating_system/01_general, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/01_operating_system/01_general/02_distributed_os
 03_mobile_os, 03_deployment/01_operating_system/01_general, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/01_operating_system/01_general/03_mobile_os
@@ -317,7 +317,7 @@ classification_heart_failure, 02_modeling/04_models/03_supervised_learning/03_cl
 04_domino, 03_deployment/04_mlops/03_tools, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/04_mlops/03_tools/04_domino
 05_dags_hub, 03_deployment/04_mlops/03_tools, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/04_mlops/03_tools/05_dags_hub
 06_aws_sagemaker, 03_deployment/04_mlops/03_tools, https://github.com/ryndovaira-org/data_science_notes/tree/main/03_deployment/04_mlops/03_tools/06_aws_sagemaker
-00_roadmap, 04_business_analysis/00_roadmap, https://github.com/ryndovaira-org/data_science_notes/tree/main/04_business_analysis/00_roadmap/00_roadmap
+01_basics, 04_business_analysis/01_basics, https://github.com/ryndovaira-org/data_science_notes/tree/main/04_business_analysis/00_roadmap/00_roadmap
 01_plotly, 04_business_analysis/01_data_visualization, https://github.com/ryndovaira-org/data_science_notes/tree/main/04_business_analysis/01_data_visualization/01_plotly
 02_tableau, 04_business_analysis/01_data_visualization, https://github.com/ryndovaira-org/data_science_notes/tree/main/04_business_analysis/01_data_visualization/02_tableau
 03_dask, 04_business_analysis/01_data_visualization, https://github.com/ryndovaira-org/data_science_notes/tree/main/04_business_analysis/01_data_visualization/03_dask
@@ -333,7 +333,7 @@ classification_heart_failure, 02_modeling/04_models/03_supervised_learning/03_cl
 01_collecting_requirements_techniques, 04_business_analysis/03_requirements_elicitation_analysis, https://github.com/ryndovaira-org/data_science_notes/tree/main/04_business_analysis/03_requirements_elicitation_analysis/01_collecting_requirements_techniques
 02_requirements_analysis, 04_business_analysis/03_requirements_elicitation_analysis, https://github.com/ryndovaira-org/data_science_notes/tree/main/04_business_analysis/03_requirements_elicitation_analysis/02_requirements_analysis
 03_facilitating_business_change_techniques, 04_business_analysis/03_requirements_elicitation_analysis, https://github.com/ryndovaira-org/data_science_notes/tree/main/04_business_analysis/03_requirements_elicitation_analysis/03_facilitating_business_change_techniques
-00_roadmap, 05_interview/00_roadmap, https://github.com/ryndovaira-org/data_science_notes/tree/main/05_interview/00_roadmap/00_roadmap
+01_basics, 05_interview/01_basics, https://github.com/ryndovaira-org/data_science_notes/tree/main/05_interview/00_roadmap/00_roadmap
 01_advise, 05_interview/01_behavioral, https://github.com/ryndovaira-org/data_science_notes/tree/main/05_interview/01_behavioral/01_advise
 02_classical, 05_interview/01_behavioral, https://github.com/ryndovaira-org/data_science_notes/tree/main/05_interview/01_behavioral/02_classical
 01_ds_case_study, 05_interview/02_technical, https://github.com/ryndovaira-org/data_science_notes/tree/main/05_interview/02_technical/01_ds_case_study
