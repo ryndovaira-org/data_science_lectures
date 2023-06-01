@@ -9,6 +9,8 @@ __pycache__/
 # IntelliJ project files
 .idea
 *.iml
+.idea/misc.xml
+m
 out
 gen
 
